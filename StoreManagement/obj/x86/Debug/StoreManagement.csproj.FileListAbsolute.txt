@@ -1,0 +1,10 @@
+C:\StoreManagement\StoreManagement\bin\Debug\StoreManagement.exe
+C:\StoreManagement\StoreManagement\bin\Debug\StoreManagement.pdb
+C:\StoreManagement\StoreManagement\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\StoreManagement\StoreManagement\obj\x86\Debug\StoreManagement.form_login.resources
+C:\StoreManagement\StoreManagement\obj\x86\Debug\StoreManagement.OneTimeLoginForm.resources
+C:\StoreManagement\StoreManagement\obj\x86\Debug\StoreManagement.Properties.Resources.resources
+C:\StoreManagement\StoreManagement\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\StoreManagement\StoreManagement\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\StoreManagement\StoreManagement\obj\x86\Debug\StoreManagement.exe
+C:\StoreManagement\StoreManagement\obj\x86\Debug\StoreManagement.pdb
