@@ -551,6 +551,8 @@ namespace StoreManagement
         //[Cancel]
         private void btn_cancel_Click(object sender, EventArgs e)
         {
+            if (mode == CREATE || mode == MODIFY || mode == DELETE || mode == SELECTID || mode == SELECTUN)
+                StaffBuffer.admin = false;
             if (!(mode == MODIFYMAINMENU))
             {
                 mode = LOGIN;
@@ -579,7 +581,6 @@ namespace StoreManagement
             {
                 mode = CREATE;
                 renderForm();
-                StaffBuffer.admin = false;
             }
         }
 
