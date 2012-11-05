@@ -24,6 +24,7 @@ namespace StoreManagement
 
         //to perform the select query on the database
         //an abstratcion for casting queries
+        //returns true if success else false
         protected void select(string columns, string table, string where)
         {
             try
@@ -39,8 +40,9 @@ namespace StoreManagement
             }
         }
 
-        //
-        //
+        //to perform the insert query on the database
+        //an abstratcion for casting queries
+        //returns true if success else false
         protected int insert(string table, string columns, string values)
         {
             try
@@ -58,8 +60,9 @@ namespace StoreManagement
             }
         }
 
-        //
-        //
+        //to perform detele query on the database
+        //an abstratcion for casting queries
+        //returns true if success else false
         protected int delete(string table, string where)
         {
             try
@@ -74,6 +77,44 @@ namespace StoreManagement
             {
                 Console.WriteLine(oe);
                 return 0;
+            }
+        }
+
+        //to perform update query on the database
+        //an abstratcion for casting queries
+        //returns true if success else false
+        protected int update(string table, string set, string where)
+        {
+            try
+            {
+                query = "update " + table +" set "+ set +" where " + where;
+                command = new OracleCommand(query, connection);
+                connection.Open();
+                command.CommandType = System.Data.CommandType.Text;
+                return command.ExecuteNonQuery();
+            }
+            catch (Oracle.DataAccess.Client.OracleException oe)
+            {
+                Console.WriteLine(oe);
+                return 0;
+            }
+        }
+
+        //select max function for generation IDs
+        //if succeded returns a non zero positive value 
+        //else returns a zero value
+        protected void selectMax(string max,string select_as,  string from)
+        {
+            try
+            {
+                query = "select MAX(" + max + ") as "+select_as+" from " + from + "";
+                command = new OracleCommand(query, connection);
+                connection.Open();
+                reader = command.ExecuteReader();
+            }
+            catch (Oracle.DataAccess.Client.OracleException oe)
+            {
+                Console.WriteLine(oe);
             }
         }
     }
