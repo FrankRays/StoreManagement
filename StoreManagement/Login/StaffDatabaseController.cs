@@ -231,7 +231,7 @@ namespace StoreManagement
             }
             connection.Close();
         }
-        public void getNextMaxId()
+        public void getNextMaxStaffId()
         {
             selectMax("STAFF_ID","ID", StaffBuffer.table);
             while (reader.Read())

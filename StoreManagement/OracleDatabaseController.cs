@@ -45,6 +45,23 @@ namespace StoreManagement
             }
         }
 
+        protected Boolean select_distinct(string columns, string table)
+        {
+            try
+            {
+                query = "select distinct (" + columns + ") from " + table + "";
+                command = new OracleCommand(query, connection);
+                connection.Open();
+                reader = command.ExecuteReader();
+                return false;
+            }
+            catch (Oracle.DataAccess.Client.OracleException oe)
+            {
+                Console.WriteLine(oe);
+                return false;
+            }
+        }
+
         //to perform the insert query on the database
         //an abstratcion for casting queries
         //returns true if success else false

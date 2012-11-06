@@ -5,6 +5,8 @@ using System.Text;
 
 namespace StoreManagement
 {
+    //this class acts as a buffer between the 
+    //Product Categories form and the database
     public static class ProductCategoryBuffer
     {
         static string product_category;
@@ -21,8 +23,11 @@ namespace StoreManagement
             ProductCategoryBuffer.product_category = "";
         }
     }
+
     partial class OracleDatabaseController
     {
+        //performs an add query, if the query succeeds,
+        //returns a true else returns a false
         public Boolean addProductCategory()
         {
             try
@@ -46,6 +51,8 @@ namespace StoreManagement
             }
         }
 
+        //performs a select query
+        //returns a true if the query succeeds else returns a false
         public Boolean selectProductCategory()
         {
             try
@@ -69,6 +76,8 @@ namespace StoreManagement
             }
         }
 
+        //performs a delete query
+        //returns a true is the query succeeds else returns a false
         public Boolean deleteProductCategory()
         {
             try

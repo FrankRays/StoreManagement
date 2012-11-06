@@ -621,7 +621,7 @@ namespace StoreManagement
             if (!StaffBuffer.admin)
             {
                 StaffBuffer.flushBuffer();
-                odbc.getNextMaxId();
+                odbc.getNextMaxStaffId();
                 getFromBuffer();
                 otlf = new OneTimeLoginForm();
                 otlf.Show();

@@ -53,6 +53,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="cmbxItem.cs" />
     <Compile Include="Login\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -97,6 +98,7 @@
       <DependentUpon>Products.cs</DependentUpon>
     </Compile>
     <Compile Include="Products\ProductsCatagoriesDatabaseController.cs" />
+    <Compile Include="Products\ProductsDatabaseController.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Login\StaffDatabaseController.cs" />
