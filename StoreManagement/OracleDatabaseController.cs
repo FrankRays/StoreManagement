@@ -25,7 +25,7 @@ namespace StoreManagement
         //to perform the select query on the database
         //an abstratcion for casting queries
         //returns true if success else false
-        protected void select(string columns, string table, string where)
+        protected Boolean select(string columns, string table, string where)
         {
             try
             {
@@ -33,10 +33,15 @@ namespace StoreManagement
                 command = new OracleCommand(query, connection);
                 connection.Open();
                 reader = command.ExecuteReader();
+                if (reader.HasRows)
+                    return true;
+                else
+                    return false;
             }
             catch (Oracle.DataAccess.Client.OracleException oe)
             {
                 Console.WriteLine(oe);
+                return false;
             }
         }
 

@@ -1,4 +1,4 @@
-﻿namespace StoreManagement.Suppliers
+﻿namespace StoreManagement
 {
     partial class Suppliers
     {

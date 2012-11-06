@@ -8,9 +8,6 @@ using System.Text;
 using System.Windows.Forms;
 using System.Security.Cryptography;
 
-using StoreManagement.Order;
-using StoreManagement.Products;
-using StoreManagement.Suppliers;
 
 namespace StoreManagement
 {
@@ -25,11 +22,11 @@ namespace StoreManagement
         private OneTimeLoginForm otlf;
 
         //create form objects of all the forms required for manipulating the database
-        private Order.Order order;
-        private Order.Bill bill;
-        private Products.Products products;
-        private Products.ProductCatagories productCatagories;
-        private Suppliers.Suppliers suppliers;
+        private Order order;
+        private Bill bill;
+        private Products products;
+        private ProductCatagories productCatagories;
+        private Suppliers suppliers;
 
         //The following constants defines a int value for each mode the form is
         //these constants are then assigned to the variable mode which stores the current mode
@@ -49,11 +46,11 @@ namespace StoreManagement
 
             //inittialize all the other forms to be used from this form
             otlf = new OneTimeLoginForm();
-            suppliers = new Suppliers.Suppliers();
-            products = new Products.Products();
+            suppliers = new Suppliers();
+            products = new Products();
             productCatagories = new ProductCatagories();
-            order = new Order.Order();
-            bill = new Order.Bill();
+            order = new Order();
+            bill = new Bill();
             renderForm();
         }
 
@@ -329,8 +326,6 @@ namespace StoreManagement
 
             //center the groupbox
             grpBoxCenter(grp_create);
-
-
         }
 
         //Modify the objects present on the form based on the looks of the form
@@ -736,7 +731,7 @@ namespace StoreManagement
         private void menu_strip_products_Click(object sender, EventArgs e)
         {
             if (products.IsDisposed)
-                products = new Products.Products();
+                products = new Products();
             products.Show();
         }
 
@@ -745,7 +740,7 @@ namespace StoreManagement
         private void menu_strip_suppliers_Click(object sender, EventArgs e)
         {
             if (suppliers.IsDisposed)
-                suppliers = new Suppliers.Suppliers();
+                suppliers = new Suppliers();
             suppliers.Show();
         }
 
@@ -754,7 +749,7 @@ namespace StoreManagement
         private void menu_strip_orders_Click(object sender, EventArgs e)
         {
             if (order.IsDisposed)
-                order = new Order.Order();
+                order = new Order();
             order.Show();
         }
 

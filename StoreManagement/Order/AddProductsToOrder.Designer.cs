@@ -1,4 +1,4 @@
-﻿namespace StoreManagement.Order
+﻿namespace StoreManagement
 {
     partial class AddProductsToOrder
     {

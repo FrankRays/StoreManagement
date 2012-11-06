@@ -1,4 +1,4 @@
-﻿namespace StoreManagement.Products
+﻿namespace StoreManagement
 {
     partial class Products
     {
