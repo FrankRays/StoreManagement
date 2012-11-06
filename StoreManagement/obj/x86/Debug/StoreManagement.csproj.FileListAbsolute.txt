@@ -11,3 +11,4 @@ C:\StoreManagement\StoreManagement\obj\x86\Debug\StoreManagement.pdb
 C:\StoreManagement\StoreManagement\bin\Debug\StoreManagement.exe.config
 C:\StoreManagement\StoreManagement\obj\x86\Debug\GenerateResource-ResGen.read.1.tlog
 C:\StoreManagement\StoreManagement\obj\x86\Debug\GenerateResource-ResGen.write.1.tlog
+C:\StoreManagement\StoreManagement\obj\x86\Debug\StoreManagement.Order.Order.resources

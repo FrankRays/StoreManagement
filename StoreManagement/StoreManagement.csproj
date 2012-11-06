@@ -34,6 +34,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Microsoft.VisualBasic.PowerPacks.Vs, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="Oracle.DataAccess, Version=10.2.0.100, Culture=neutral, PublicKeyToken=89b483f429c47342">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\oraclexe\app\oracle\product\10.2.0\server\BIN\Oracle.DataAccess.dll</HintPath>
@@ -51,27 +53,75 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Login Codes\LoginForm.cs">
+    <Compile Include="Login\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Login Codes\LoginForm.Designer.cs">
+    <Compile Include="Login\LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Login Codes\OneTimeLoginForm.cs">
+    <Compile Include="Login\OneTimeLoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Login Codes\OneTimeLoginForm.Designer.cs">
+    <Compile Include="Login\OneTimeLoginForm.Designer.cs">
       <DependentUpon>OneTimeLoginForm.cs</DependentUpon>
     </Compile>
     <Compile Include="OracleDatabaseController.cs" />
+    <Compile Include="Order\AddProductsToOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Order\AddProductsToOrder.Designer.cs">
+      <DependentUpon>AddProductsToOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Order\Bill.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Order\Bill.Designer.cs">
+      <DependentUpon>Bill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Order\Order.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Order\Order.Designer.cs">
+      <DependentUpon>Order.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Products\ProductCatagories.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Products\ProductCatagories.Designer.cs">
+      <DependentUpon>ProductCatagories.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Products\Products.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Products\Products.Designer.cs">
+      <DependentUpon>Products.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Login Codes\StaffDatabaseController.cs" />
-    <EmbeddedResource Include="Login Codes\LoginForm.resx">
+    <Compile Include="Login\StaffDatabaseController.cs" />
+    <Compile Include="Suppliers\Suppliers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Suppliers\Suppliers.Designer.cs">
+      <DependentUpon>Suppliers.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Login\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Login Codes\OneTimeLoginForm.resx">
+    <EmbeddedResource Include="Login\OneTimeLoginForm.resx">
       <DependentUpon>OneTimeLoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Order\Bill.resx">
+      <DependentUpon>Bill.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Order\Order.resx">
+      <DependentUpon>Order.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Products\ProductCatagories.resx">
+      <DependentUpon>ProductCatagories.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Products\Products.resx">
+      <DependentUpon>Products.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -82,6 +132,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Suppliers\Suppliers.resx">
+      <DependentUpon>Suppliers.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="app.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -93,6 +146,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
