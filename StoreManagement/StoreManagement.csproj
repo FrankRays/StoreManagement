@@ -111,6 +111,9 @@
     <EmbeddedResource Include="Login\OneTimeLoginForm.resx">
       <DependentUpon>OneTimeLoginForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Order\AddProductsToOrder.resx">
+      <DependentUpon>AddProductsToOrder.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Order\Bill.resx">
       <DependentUpon>Bill.cs</DependentUpon>
     </EmbeddedResource>
