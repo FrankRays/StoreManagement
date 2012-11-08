@@ -72,7 +72,7 @@ namespace StoreManagement
         }
         public Boolean deleteSupplier()
         {
-            if (delete("SUPPLIERS", "SUPPLIER_NAME='" + SuppliersBuffer.name + "'") > 0)
+            if (delete("SUPPLIERS","SUPPLIER_NAME='"+SuppliersBuffer.name+"'") > 0)
             {
                 connection.Close();
                 return true;

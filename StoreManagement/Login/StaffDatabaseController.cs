@@ -255,12 +255,12 @@ namespace StoreManagement
             if (reader.HasRows)
             {
                 connection.Close();
-                return true;
+                return false;
             }
             else
             {
                 connection.Close();
-                return false;
+                return true;
             }
         }
     }

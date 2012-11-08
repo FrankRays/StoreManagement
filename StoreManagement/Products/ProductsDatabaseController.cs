@@ -30,8 +30,8 @@ namespace StoreManagement
     }
     partial class OracleDatabaseController
     {
-        /*
-        public Boolean getAllSupplierRows()
+        
+        public Boolean getAllSupplierRowsForProducts()
         {
             try
             {
@@ -55,7 +55,7 @@ namespace StoreManagement
                 return false;
             }
         }
-        */
+        
         public Boolean getAllProductCategoryRows()
         {
             try

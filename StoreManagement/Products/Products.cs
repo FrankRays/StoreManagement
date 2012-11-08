@@ -34,7 +34,7 @@ namespace StoreManagement
             flushForm();
 
             //load the combo box data items from the database into the buffer
-            odbc.getAllSupplierRows();
+            odbc.getAllSupplierRowsForProducts();
             odbc.getAllProductCategoryRows();
 
             //select add as starting button and 

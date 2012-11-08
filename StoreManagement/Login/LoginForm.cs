@@ -51,6 +51,7 @@ namespace StoreManagement
             productCatagories = new ProductCatagories();
             order = new Order();
             bill = new Bill();
+            StaffBuffer.loggedIn = false;
             renderForm();
         }
 

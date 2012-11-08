@@ -29,16 +29,16 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txt_order_id = new System.Windows.Forms.TextBox();
-            this.cmb_product_name = new System.Windows.Forms.ComboBox();
-            this.txt_quantity = new System.Windows.Forms.TextBox();
-            this.btn_accept = new System.Windows.Forms.Button();
-            this.btn_cancel = new System.Windows.Forms.Button();
-            this.dataRepeater1 = new Microsoft.VisualBasic.PowerPacks.DataRepeater();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.dataRepeater1 = new Microsoft.VisualBasic.PowerPacks.DataRepeater();
+            this.btn_cancel = new System.Windows.Forms.Button();
+            this.btn_accept = new System.Windows.Forms.Button();
+            this.txt_quantity = new System.Windows.Forms.TextBox();
+            this.cmb_product_name = new System.Windows.Forms.ComboBox();
+            this.txt_order_id = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.dataRepeater1.SuspendLayout();
             this.SuspendLayout();
@@ -62,54 +62,32 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Add to products";
             // 
-            // label1
+            // label4
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(68, 33);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(50, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Order ID:";
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(7, 127);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(91, 13);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Products ordered:";
             // 
-            // txt_order_id
+            // label3
             // 
-            this.txt_order_id.Location = new System.Drawing.Point(169, 30);
-            this.txt_order_id.Name = "txt_order_id";
-            this.txt_order_id.Size = new System.Drawing.Size(121, 20);
-            this.txt_order_id.TabIndex = 1;
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(68, 86);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(87, 13);
+            this.label3.TabIndex = 9;
+            this.label3.Text = "Product quantity:";
             // 
-            // cmb_product_name
+            // label2
             // 
-            this.cmb_product_name.FormattingEnabled = true;
-            this.cmb_product_name.Location = new System.Drawing.Point(169, 56);
-            this.cmb_product_name.Name = "cmb_product_name";
-            this.cmb_product_name.Size = new System.Drawing.Size(121, 21);
-            this.cmb_product_name.TabIndex = 2;
-            // 
-            // txt_quantity
-            // 
-            this.txt_quantity.Location = new System.Drawing.Point(169, 83);
-            this.txt_quantity.Name = "txt_quantity";
-            this.txt_quantity.Size = new System.Drawing.Size(121, 20);
-            this.txt_quantity.TabIndex = 3;
-            // 
-            // btn_accept
-            // 
-            this.btn_accept.Location = new System.Drawing.Point(196, 272);
-            this.btn_accept.Name = "btn_accept";
-            this.btn_accept.Size = new System.Drawing.Size(75, 23);
-            this.btn_accept.TabIndex = 4;
-            this.btn_accept.Text = "Accept";
-            this.btn_accept.UseVisualStyleBackColor = true;
-            // 
-            // btn_cancel
-            // 
-            this.btn_cancel.Location = new System.Drawing.Point(277, 272);
-            this.btn_cancel.Name = "btn_cancel";
-            this.btn_cancel.Size = new System.Drawing.Size(75, 23);
-            this.btn_cancel.TabIndex = 5;
-            this.btn_cancel.Text = "Cancel";
-            this.btn_cancel.UseVisualStyleBackColor = true;
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(68, 59);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(78, 13);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "Product Name:";
             // 
             // dataRepeater1
             // 
@@ -123,41 +101,67 @@
             this.dataRepeater1.TabIndex = 7;
             this.dataRepeater1.Text = "dataRepeater1";
             // 
-            // label2
+            // btn_cancel
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(68, 59);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(78, 13);
-            this.label2.TabIndex = 8;
-            this.label2.Text = "Product Name:";
+            this.btn_cancel.Location = new System.Drawing.Point(277, 272);
+            this.btn_cancel.Name = "btn_cancel";
+            this.btn_cancel.Size = new System.Drawing.Size(75, 23);
+            this.btn_cancel.TabIndex = 5;
+            this.btn_cancel.Text = "Cancel";
+            this.btn_cancel.UseVisualStyleBackColor = true;
             // 
-            // label3
+            // btn_accept
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(68, 86);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(87, 13);
-            this.label3.TabIndex = 9;
-            this.label3.Text = "Product quantity:";
+            this.btn_accept.Location = new System.Drawing.Point(196, 272);
+            this.btn_accept.Name = "btn_accept";
+            this.btn_accept.Size = new System.Drawing.Size(75, 23);
+            this.btn_accept.TabIndex = 4;
+            this.btn_accept.Text = "Accept";
+            this.btn_accept.UseVisualStyleBackColor = true;
             // 
-            // label4
+            // txt_quantity
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(7, 127);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(91, 13);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "Products ordered:";
+            this.txt_quantity.Location = new System.Drawing.Point(169, 83);
+            this.txt_quantity.Name = "txt_quantity";
+            this.txt_quantity.Size = new System.Drawing.Size(121, 20);
+            this.txt_quantity.TabIndex = 3;
+            // 
+            // cmb_product_name
+            // 
+            this.cmb_product_name.FormattingEnabled = true;
+            this.cmb_product_name.Location = new System.Drawing.Point(169, 56);
+            this.cmb_product_name.Name = "cmb_product_name";
+            this.cmb_product_name.Size = new System.Drawing.Size(121, 21);
+            this.cmb_product_name.TabIndex = 2;
+            // 
+            // txt_order_id
+            // 
+            this.txt_order_id.Location = new System.Drawing.Point(169, 30);
+            this.txt_order_id.Name = "txt_order_id";
+            this.txt_order_id.ReadOnly = true;
+            this.txt_order_id.Size = new System.Drawing.Size(121, 20);
+            this.txt_order_id.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(68, 33);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(50, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Order ID:";
             // 
             // AddProductsToOrder
             // 
+            this.AcceptButton = this.btn_accept;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.btn_cancel;
             this.ClientSize = new System.Drawing.Size(386, 325);
             this.Controls.Add(this.groupBox1);
             this.Name = "AddProductsToOrder";
             this.Text = "AddProductsToOrder";
+            this.Load += new System.EventHandler(this.AddProductsToOrder_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.dataRepeater1.ResumeLayout(false);

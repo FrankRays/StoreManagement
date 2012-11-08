@@ -64,7 +64,7 @@ namespace StoreManagement
 
         //to perform the insert query on the database
         //an abstratcion for casting queries
-        //returns true if success else false
+        //returns the number of records inserted
         protected int insert(string table, string columns, string values)
         {
             try
@@ -125,7 +125,7 @@ namespace StoreManagement
         //select max function for generation IDs
         //if succeded returns a non zero positive value 
         //else returns a zero value
-        protected void selectMax(string max,string select_as,  string from)
+        protected Boolean selectMax(string max,string select_as,  string from)
         {
             try
             {
@@ -133,10 +133,47 @@ namespace StoreManagement
                 command = new OracleCommand(query, connection);
                 connection.Open();
                 reader = command.ExecuteReader();
+                return true;
             }
             catch (Oracle.DataAccess.Client.OracleException oe)
             {
                 Console.WriteLine(oe);
+                return false;
+            }
+        }
+
+        //creates a new table with the attribuetes 
+        //as supplied in the attributes string
+        protected int create(string table, string attributes)
+        {
+            try
+            {
+                query = "create table " + table + " ( " + attributes + " )";
+                command = new OracleCommand(query, connection);
+                connection.Open();
+                return command.ExecuteNonQuery();
+            }
+            catch (OracleException oe)
+            {
+                Console.WriteLine(oe);
+                return 0;
+            }
+        }
+
+        //drops a table
+        protected int drop(string table)
+        {
+            try
+            {
+                query = "drop table " + table + "";
+                command = new OracleCommand(query, connection);
+                connection.Open();
+                return command.ExecuteNonQuery();
+            }
+            catch (OracleException oe)
+            {
+                Console.WriteLine(oe);
+                return 0;
             }
         }
     }

@@ -7,6 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
+using System.Threading;
+using System.Globalization;
+
 namespace StoreManagement
 {
     public partial class Order : Form
@@ -20,15 +23,22 @@ namespace StoreManagement
 
         public Order()
         {
+            // Sets the culture to English (US)
+            //Thread.CurrentThread.CurrentCulture = new CultureInfo("en-IN");
+            // Sets the UI culture to English (US)
+            //Thread.CurrentThread.CurrentUICulture = new CultureInfo("en-IN");
+
             InitializeComponent();
 
             dtp_date_of_dispatch.Format = DateTimePickerFormat.Custom;
-            dtp_date_of_dispatch.CustomFormat = "dd-MMM-yyyy";
+            dtp_date_of_dispatch.CustomFormat = "dd-MM-yyyy";
 
             dtp_date_of_order.Format = DateTimePickerFormat.Custom;
-            dtp_date_of_order.CustomFormat = "dd-MMM-yyyy";
+            dtp_date_of_order.CustomFormat = "dd-MM-yyyy";
 
             odbc = new OracleDatabaseController();
+
+            apto = new AddProductsToOrder();
 
             mode = ADD;
             rad_add.Checked = true;
@@ -60,13 +70,14 @@ namespace StoreManagement
             OrdersBuffer.first_name = txt_customer_first_name.Text;
             OrdersBuffer.last_name = txt_customer_last_name.Text;
             OrdersBuffer.mode_of_payment = cmb_mode_of_payment.Text;
-            OrdersBuffer.date_of_dispatch = dtp_date_of_order.Text;
+            OrdersBuffer.date_of_dispatch = dtp_date_of_dispatch.Text;
             OrdersBuffer.date_of_order = dtp_date_of_order.Text;
         }
 
         private void renderAdd()
         {
             txt_order_id.ReadOnly = true;
+            txt_order_id.Text = OrdersBuffer.id.ToString();
             txt_customer_first_name.ReadOnly =
                 txt_customer_last_name.ReadOnly = false;
             cmb_mode_of_payment.Enabled =
@@ -149,7 +160,7 @@ namespace StoreManagement
             else if (mode == SELECT)
             {
                 putToBuffer();
-                if (odbc.selectSupplier())
+                if (odbc.selectOrder())
                 { }
                 else
                     showSuccessMessage(false, "select");
@@ -158,7 +169,7 @@ namespace StoreManagement
             else if (mode == MODIFY)
             {
                 putToBuffer();
-                if (odbc.modifySupplier())
+                if (odbc.modifyOrder())
                 { }
                 else
                     showSuccessMessage(false, "modify");
@@ -166,7 +177,7 @@ namespace StoreManagement
             else if (mode == DELETE)
             {
                 putToBuffer();
-                if (odbc.deleteSupplier())
+                if (odbc.deleteOrder())
                     showSuccessMessage(true, "delete");
                 else
                     showSuccessMessage(false, "delete");
@@ -199,6 +210,7 @@ namespace StoreManagement
         private void rad_add_CheckedChanged(object sender, EventArgs e)
         {
             mode = ADD;
+            odbc.getNextMaxOrderId();
             renderForm();
         }
 

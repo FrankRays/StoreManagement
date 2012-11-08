@@ -11,9 +11,23 @@ namespace StoreManagement
 {
     public partial class AddProductsToOrder : Form
     {
+        OracleDatabaseController odbc;
         public AddProductsToOrder()
         {
             InitializeComponent();
+            odbc = new OracleDatabaseController();
+        }
+
+        private void AddProductsToOrder_Load(object sender, EventArgs e)
+        {
+            txt_order_id.Text = OrdersBuffer.id.ToString();
+            cmb_product_name.Items.Clear();
+
+        }
+
+        private void loadAllProducts()
+        {
+
         }
     }
 }

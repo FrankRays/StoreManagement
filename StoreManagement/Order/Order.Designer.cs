@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.grp_order = new System.Windows.Forms.GroupBox();
-            this.btn_add_products = new System.Windows.Forms.Button();
+            this.btn_products_ordered = new System.Windows.Forms.Button();
             this.dtp_date_of_dispatch = new System.Windows.Forms.DateTimePicker();
             this.dtp_date_of_order = new System.Windows.Forms.DateTimePicker();
             this.cmb_mode_of_payment = new System.Windows.Forms.ComboBox();
@@ -53,7 +53,7 @@
             // 
             // grp_order
             // 
-            this.grp_order.Controls.Add(this.btn_add_products);
+            this.grp_order.Controls.Add(this.btn_products_ordered);
             this.grp_order.Controls.Add(this.dtp_date_of_dispatch);
             this.grp_order.Controls.Add(this.dtp_date_of_order);
             this.grp_order.Controls.Add(this.cmb_mode_of_payment);
@@ -79,15 +79,15 @@
             this.grp_order.TabStop = false;
             this.grp_order.Text = "Order";
             // 
-            // btn_add_products
+            // btn_products_ordered
             // 
-            this.btn_add_products.Location = new System.Drawing.Point(117, 194);
-            this.btn_add_products.Name = "btn_add_products";
-            this.btn_add_products.Size = new System.Drawing.Size(85, 23);
-            this.btn_add_products.TabIndex = 18;
-            this.btn_add_products.Text = "Add Products";
-            this.btn_add_products.UseVisualStyleBackColor = true;
-            this.btn_add_products.Click += new System.EventHandler(this.btn_add_products_Click);
+            this.btn_products_ordered.Location = new System.Drawing.Point(117, 194);
+            this.btn_products_ordered.Name = "btn_products_ordered";
+            this.btn_products_ordered.Size = new System.Drawing.Size(85, 23);
+            this.btn_products_ordered.TabIndex = 18;
+            this.btn_products_ordered.Text = "Products Ordered";
+            this.btn_products_ordered.UseVisualStyleBackColor = true;
+            this.btn_products_ordered.Click += new System.EventHandler(this.btn_add_products_Click);
             // 
             // dtp_date_of_dispatch
             // 
@@ -98,6 +98,7 @@
             // 
             // dtp_date_of_order
             // 
+            this.dtp_date_of_order.CustomFormat = "";
             this.dtp_date_of_order.Location = new System.Drawing.Point(162, 117);
             this.dtp_date_of_order.Name = "dtp_date_of_order";
             this.dtp_date_of_order.Size = new System.Drawing.Size(121, 20);
@@ -305,6 +306,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btn_add_products;
+        private System.Windows.Forms.Button btn_products_ordered;
     }
 }
