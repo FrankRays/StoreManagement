@@ -25,11 +25,12 @@ namespace StoreManagement
         public static void flushBuffer()
         {
             id = wholesale_cost = retail_cost = 0;
-            product_name = active_supplier_name = active_product_catagory;
+            product_name = active_supplier_name = active_product_catagory = "";
         }
     }
     partial class OracleDatabaseController
     {
+        /*
         public Boolean getAllSupplierRows()
         {
             try
@@ -54,7 +55,7 @@ namespace StoreManagement
                 return false;
             }
         }
-
+        */
         public Boolean getAllProductCategoryRows()
         {
             try
@@ -106,27 +107,82 @@ namespace StoreManagement
                 "','" + ProductsBuffer.active_product_catagory + "','" +
                 ProductsBuffer.wholesale_cost + "','" + ProductsBuffer.retail_cost + "'") > 0)//if qurey returns int > 0
             {
+                connection.Close();
                 return true;
             }
             else
             {
+                connection.Close();
                 return false;
             }
         }
 
         public Boolean selectProduct()
         {
-            return false;
+            if (select("*", "PRODUCTS", "PRODUCT_ID='" + ProductsBuffer.id + "'"))
+            {
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        ProductsBuffer.id = Convert.ToInt32(reader["PRODUCT_ID"].ToString());
+                        ProductsBuffer.product_name = reader["PRODUCT_NAME"].ToString();
+                        ProductsBuffer.active_supplier_name = reader["SUPPLIER_NAME"].ToString(); ;
+                        ProductsBuffer.active_product_catagory = reader["PRODUCT_CATEGORY"].ToString(); ;
+                        ProductsBuffer.wholesale_cost = Convert.ToInt32(reader["WHOLESALE_COST"].ToString());
+                        ProductsBuffer.retail_cost = Convert.ToInt32(reader["RETAIL_COST"].ToString());
+                    }
+                    connection.Close();
+                    return true;
+                }
+                else
+                {
+                    connection.Close();
+                    return false;
+                }
+            }
+            else
+            {
+                connection.Close();
+                return false;
+            }
         }
 
         public Boolean modifyProduct()
         {
-            return false;
+            if (update("PRODUCTS",
+                "PRODUCT_ID='" + ProductsBuffer.id +
+                "',PRODUCT_NAME='" + ProductsBuffer.product_name +
+                "',SUPPLIER_NAME='" + ProductsBuffer.active_supplier_name +
+                "',PRODUCT_CATEGORY='" + ProductsBuffer.active_product_catagory +
+                "',WHOLESALE_COST='" + ProductsBuffer.wholesale_cost.ToString() +
+                "',RETAIL_COST='" + ProductsBuffer.retail_cost.ToString() + "'",
+                "PRODUCT_ID='" + ProductsBuffer.id.ToString() + "'")
+                > 0)
+            {
+                connection.Close();
+                return true;
+            }
+            else
+            {
+                connection.Close();
+                return false;
+            }
         }
 
         public Boolean deleteProduct()
         {
-            return false;
+            if (delete("PRODUCTS", "PRODUCT_ID='" + ProductsBuffer.id + "'") > 0)
+            {
+                connection.Close();
+                ProductsBuffer.flushBuffer();
+                return true;
+            }
+            else
+            {
+                connection.Close();
+                return false;
+            }
         }
     }
 }

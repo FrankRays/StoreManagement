@@ -64,7 +64,9 @@ namespace StoreManagement
             txt_product_id.Text =
             txt_product_name.Text =
             txt_retail_cost.Text =
-            txt_wholesale_cost.Text = "";
+            txt_wholesale_cost.Text = 
+            cmb_product_category.Text = 
+            cmb_supplier_name.Text = "";
         }
 
         //gets all the attributes from the form and put it onto the buffer
@@ -179,8 +181,8 @@ namespace StoreManagement
         //currently performed database operation
         private void showSuccessMessage(Boolean status, string type)
         {
-            MessageBox.Show("The operation was " + (status ? "" : "not") + " successfully performed on the database." +
-                (status ? "" : "\n.Some problem occured with the database"), "Database " + (status ? "success" : "failure"));
+            MessageBox.Show("The operation "+type+" was " + (status ? "" : "not") + " successfully performed on the database." +
+                (status ? "" : "\nSome problem occured with the database."), "Database " + (status ? "success" : "failure"));
         }
 
         private void perform_database_operation()
@@ -189,15 +191,15 @@ namespace StoreManagement
             {
                 putToBuffer();
                 if (odbc.addProduct())
-                    showSuccessMessage(true,"add");
+                    showSuccessMessage(true, "add");
                 else
-                    showSuccessMessage(false,"add");
+                    showSuccessMessage(false, "add");
             }
             else if (mode == SELECT)
             {
                 putToBuffer();
                 if (odbc.selectProduct())
-                    showSuccessMessage(true, "select");
+                { }
                 else
                     showSuccessMessage(false, "select");
                 getFromBuffer();
@@ -206,7 +208,7 @@ namespace StoreManagement
             {
                 putToBuffer();
                 if (odbc.modifyProduct())
-                    showSuccessMessage(true, "modify");
+                { }
                 else
                     showSuccessMessage(false, "modify");
             }
@@ -222,6 +224,9 @@ namespace StoreManagement
 
         private void btn_cancel_Click(object sender, EventArgs e)
         {
+            //clears the items from the two dropdown boxes
+            ProductsBuffer.clearLists();
+
             //deletes the form from the memory
             this.Dispose();
         }

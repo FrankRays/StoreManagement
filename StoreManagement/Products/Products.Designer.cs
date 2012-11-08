@@ -34,7 +34,7 @@
             this.rad_select = new System.Windows.Forms.RadioButton();
             this.rad_add = new System.Windows.Forms.RadioButton();
             this.btn_cancel = new System.Windows.Forms.Button();
-            this.btn_accept = new System.Windows.Forms.Button();
+            this.btn_ok = new System.Windows.Forms.Button();
             this.cmb_supplier_name = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.txt_retail_cost = new System.Windows.Forms.TextBox();
@@ -57,7 +57,7 @@
             this.grp_products.Controls.Add(this.rad_select);
             this.grp_products.Controls.Add(this.rad_add);
             this.grp_products.Controls.Add(this.btn_cancel);
-            this.grp_products.Controls.Add(this.btn_accept);
+            this.grp_products.Controls.Add(this.btn_ok);
             this.grp_products.Controls.Add(this.cmb_supplier_name);
             this.grp_products.Controls.Add(this.label6);
             this.grp_products.Controls.Add(this.txt_retail_cost);
@@ -127,6 +127,7 @@
             // 
             // btn_cancel
             // 
+            this.btn_cancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btn_cancel.Location = new System.Drawing.Point(154, 226);
             this.btn_cancel.Name = "btn_cancel";
             this.btn_cancel.Size = new System.Drawing.Size(75, 23);
@@ -135,15 +136,15 @@
             this.btn_cancel.UseVisualStyleBackColor = true;
             this.btn_cancel.Click += new System.EventHandler(this.btn_cancel_Click);
             // 
-            // btn_accept
+            // btn_ok
             // 
-            this.btn_accept.Location = new System.Drawing.Point(154, 197);
-            this.btn_accept.Name = "btn_accept";
-            this.btn_accept.Size = new System.Drawing.Size(75, 23);
-            this.btn_accept.TabIndex = 12;
-            this.btn_accept.Text = "Accept";
-            this.btn_accept.UseVisualStyleBackColor = true;
-            this.btn_accept.Click += new System.EventHandler(this.btn_accept_Click);
+            this.btn_ok.Location = new System.Drawing.Point(154, 197);
+            this.btn_ok.Name = "btn_ok";
+            this.btn_ok.Size = new System.Drawing.Size(75, 23);
+            this.btn_ok.TabIndex = 12;
+            this.btn_ok.Text = "Ok";
+            this.btn_ok.UseVisualStyleBackColor = true;
+            this.btn_ok.Click += new System.EventHandler(this.btn_accept_Click);
             // 
             // cmb_supplier_name
             // 
@@ -246,8 +247,10 @@
             // 
             // Products
             // 
+            this.AcceptButton = this.btn_ok;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.btn_cancel;
             this.ClientSize = new System.Drawing.Size(287, 298);
             this.Controls.Add(this.grp_products);
             this.MaximumSize = new System.Drawing.Size(303, 336);
@@ -265,7 +268,7 @@
 
         private System.Windows.Forms.GroupBox grp_products;
         private System.Windows.Forms.Button btn_cancel;
-        private System.Windows.Forms.Button btn_accept;
+        private System.Windows.Forms.Button btn_ok;
         private System.Windows.Forms.ComboBox cmb_supplier_name;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txt_retail_cost;

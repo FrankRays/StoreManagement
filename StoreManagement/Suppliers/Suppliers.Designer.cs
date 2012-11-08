@@ -29,6 +29,10 @@
         private void InitializeComponent()
         {
             this.grp_suppliers = new System.Windows.Forms.GroupBox();
+            this.txt_supplier_email = new System.Windows.Forms.TextBox();
+            this.txt_supplier_phone = new System.Windows.Forms.TextBox();
+            this.txt_supplier_name = new System.Windows.Forms.TextBox();
+            this.rad_add = new System.Windows.Forms.RadioButton();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -37,10 +41,6 @@
             this.rad_delete = new System.Windows.Forms.RadioButton();
             this.btn_accept = new System.Windows.Forms.Button();
             this.btn_cancel = new System.Windows.Forms.Button();
-            this.rad_add = new System.Windows.Forms.RadioButton();
-            this.txt_supplier_name = new System.Windows.Forms.TextBox();
-            this.txt_supplier_phone = new System.Windows.Forms.TextBox();
-            this.txt_supplier_email = new System.Windows.Forms.TextBox();
             this.grp_suppliers.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -64,6 +64,39 @@
             this.grp_suppliers.TabIndex = 0;
             this.grp_suppliers.TabStop = false;
             this.grp_suppliers.Text = "Suppliers";
+            // 
+            // txt_supplier_email
+            // 
+            this.txt_supplier_email.Location = new System.Drawing.Point(107, 84);
+            this.txt_supplier_email.Name = "txt_supplier_email";
+            this.txt_supplier_email.Size = new System.Drawing.Size(100, 20);
+            this.txt_supplier_email.TabIndex = 12;
+            // 
+            // txt_supplier_phone
+            // 
+            this.txt_supplier_phone.Location = new System.Drawing.Point(107, 56);
+            this.txt_supplier_phone.Name = "txt_supplier_phone";
+            this.txt_supplier_phone.Size = new System.Drawing.Size(100, 20);
+            this.txt_supplier_phone.TabIndex = 11;
+            // 
+            // txt_supplier_name
+            // 
+            this.txt_supplier_name.Location = new System.Drawing.Point(107, 26);
+            this.txt_supplier_name.Name = "txt_supplier_name";
+            this.txt_supplier_name.Size = new System.Drawing.Size(100, 20);
+            this.txt_supplier_name.TabIndex = 10;
+            // 
+            // rad_add
+            // 
+            this.rad_add.AutoSize = true;
+            this.rad_add.Location = new System.Drawing.Point(6, 139);
+            this.rad_add.Name = "rad_add";
+            this.rad_add.Size = new System.Drawing.Size(44, 17);
+            this.rad_add.TabIndex = 9;
+            this.rad_add.TabStop = true;
+            this.rad_add.Text = "Add";
+            this.rad_add.UseVisualStyleBackColor = true;
+            this.rad_add.CheckedChanged += new System.EventHandler(this.rad_add_CheckedChanged);
             // 
             // label1
             // 
@@ -102,6 +135,7 @@
             this.rad_select.TabStop = true;
             this.rad_select.Text = "Select";
             this.rad_select.UseVisualStyleBackColor = true;
+            this.rad_select.CheckedChanged += new System.EventHandler(this.rad_select_CheckedChanged);
             // 
             // rad_modify
             // 
@@ -113,6 +147,7 @@
             this.rad_modify.TabStop = true;
             this.rad_modify.Text = "Modify";
             this.rad_modify.UseVisualStyleBackColor = true;
+            this.rad_modify.CheckedChanged += new System.EventHandler(this.rad_modify_CheckedChanged);
             // 
             // rad_delete
             // 
@@ -124,6 +159,7 @@
             this.rad_delete.TabStop = true;
             this.rad_delete.Text = "Delete";
             this.rad_delete.UseVisualStyleBackColor = true;
+            this.rad_delete.CheckedChanged += new System.EventHandler(this.rad_delete_CheckedChanged);
             // 
             // btn_accept
             // 
@@ -131,54 +167,27 @@
             this.btn_accept.Name = "btn_accept";
             this.btn_accept.Size = new System.Drawing.Size(75, 23);
             this.btn_accept.TabIndex = 7;
-            this.btn_accept.Text = "Accept";
+            this.btn_accept.Text = "Ok";
             this.btn_accept.UseVisualStyleBackColor = true;
+            this.btn_accept.Click += new System.EventHandler(this.btn_accept_Click);
             // 
             // btn_cancel
             // 
+            this.btn_cancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btn_cancel.Location = new System.Drawing.Point(178, 208);
             this.btn_cancel.Name = "btn_cancel";
             this.btn_cancel.Size = new System.Drawing.Size(75, 23);
             this.btn_cancel.TabIndex = 8;
             this.btn_cancel.Text = "Cancel";
             this.btn_cancel.UseVisualStyleBackColor = true;
-            // 
-            // rad_add
-            // 
-            this.rad_add.AutoSize = true;
-            this.rad_add.Location = new System.Drawing.Point(6, 139);
-            this.rad_add.Name = "rad_add";
-            this.rad_add.Size = new System.Drawing.Size(44, 17);
-            this.rad_add.TabIndex = 9;
-            this.rad_add.TabStop = true;
-            this.rad_add.Text = "Add";
-            this.rad_add.UseVisualStyleBackColor = true;
-            // 
-            // txt_supplier_name
-            // 
-            this.txt_supplier_name.Location = new System.Drawing.Point(107, 26);
-            this.txt_supplier_name.Name = "txt_supplier_name";
-            this.txt_supplier_name.Size = new System.Drawing.Size(100, 20);
-            this.txt_supplier_name.TabIndex = 10;
-            // 
-            // txt_supplier_phone
-            // 
-            this.txt_supplier_phone.Location = new System.Drawing.Point(107, 56);
-            this.txt_supplier_phone.Name = "txt_supplier_phone";
-            this.txt_supplier_phone.Size = new System.Drawing.Size(100, 20);
-            this.txt_supplier_phone.TabIndex = 11;
-            // 
-            // txt_supplier_email
-            // 
-            this.txt_supplier_email.Location = new System.Drawing.Point(107, 84);
-            this.txt_supplier_email.Name = "txt_supplier_email";
-            this.txt_supplier_email.Size = new System.Drawing.Size(100, 20);
-            this.txt_supplier_email.TabIndex = 12;
+            this.btn_cancel.Click += new System.EventHandler(this.btn_cancel_Click);
             // 
             // Suppliers
             // 
+            this.AcceptButton = this.btn_accept;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.btn_cancel;
             this.ClientSize = new System.Drawing.Size(284, 262);
             this.Controls.Add(this.grp_suppliers);
             this.Name = "Suppliers";

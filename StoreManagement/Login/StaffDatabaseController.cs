@@ -236,9 +236,32 @@ namespace StoreManagement
             selectMax("STAFF_ID","ID", StaffBuffer.table);
             while (reader.Read())
             {
-                StaffBuffer.Id = Convert.ToInt32(reader["ID"].ToString())+1;
+                if (reader.IsDBNull(0))
+                {
+                    StaffBuffer.Id = 0;
+                }
+                else
+                {
+                    StaffBuffer.Id = Convert.ToInt32(reader["ID"].ToString()) + 1;
+                }
             }
             connection.Close();
+        }
+
+        //check if there are no registered users
+        public Boolean isStaffEmpty()
+        {
+            select("count(*)", "STAFF", "ROWNUM=1");
+            if (reader.HasRows)
+            {
+                connection.Close();
+                return true;
+            }
+            else
+            {
+                connection.Close();
+                return false;
+            }
         }
     }
 }

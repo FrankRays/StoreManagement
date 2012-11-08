@@ -29,20 +29,20 @@
         private void InitializeComponent()
         {
             this.grp_bill = new System.Windows.Forms.GroupBox();
-            this.grp_select = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txt_select = new System.Windows.Forms.TextBox();
-            this.btn_select = new System.Windows.Forms.Button();
-            this.dataRepeater1 = new Microsoft.VisualBasic.PowerPacks.DataRepeater();
+            this.txt_customer_lastname = new System.Windows.Forms.TextBox();
+            this.txt_customer_firstname = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.btn_close = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.txt_total_cost = new System.Windows.Forms.TextBox();
-            this.btn_close = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txt_customer_firstname = new System.Windows.Forms.TextBox();
-            this.txt_customer_lastname = new System.Windows.Forms.TextBox();
+            this.dataRepeater1 = new Microsoft.VisualBasic.PowerPacks.DataRepeater();
+            this.grp_select = new System.Windows.Forms.GroupBox();
+            this.btn_select = new System.Windows.Forms.Button();
+            this.txt_select = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.grp_bill.SuspendLayout();
-            this.grp_select.SuspendLayout();
             this.dataRepeater1.SuspendLayout();
+            this.grp_select.SuspendLayout();
             this.SuspendLayout();
             // 
             // grp_bill
@@ -62,54 +62,39 @@
             this.grp_bill.TabStop = false;
             this.grp_bill.Text = "Bill";
             // 
-            // grp_select
+            // txt_customer_lastname
             // 
-            this.grp_select.Controls.Add(this.btn_select);
-            this.grp_select.Controls.Add(this.txt_select);
-            this.grp_select.Controls.Add(this.label1);
-            this.grp_select.Location = new System.Drawing.Point(6, 19);
-            this.grp_select.Name = "grp_select";
-            this.grp_select.Size = new System.Drawing.Size(389, 41);
-            this.grp_select.TabIndex = 0;
-            this.grp_select.TabStop = false;
-            this.grp_select.Text = "Select";
+            this.txt_customer_lastname.Location = new System.Drawing.Point(234, 89);
+            this.txt_customer_lastname.Name = "txt_customer_lastname";
+            this.txt_customer_lastname.ReadOnly = true;
+            this.txt_customer_lastname.Size = new System.Drawing.Size(100, 20);
+            this.txt_customer_lastname.TabIndex = 5;
             // 
-            // label1
+            // txt_customer_firstname
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(55, 16);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(50, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Order ID:";
+            this.txt_customer_firstname.Location = new System.Drawing.Point(117, 89);
+            this.txt_customer_firstname.Name = "txt_customer_firstname";
+            this.txt_customer_firstname.ReadOnly = true;
+            this.txt_customer_firstname.Size = new System.Drawing.Size(100, 20);
+            this.txt_customer_firstname.TabIndex = 4;
             // 
-            // txt_select
+            // label3
             // 
-            this.txt_select.Location = new System.Drawing.Point(111, 13);
-            this.txt_select.Name = "txt_select";
-            this.txt_select.Size = new System.Drawing.Size(100, 20);
-            this.txt_select.TabIndex = 1;
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(26, 92);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(85, 13);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "Customer Name:";
             // 
-            // btn_select
+            // btn_close
             // 
-            this.btn_select.Location = new System.Drawing.Point(253, 11);
-            this.btn_select.Name = "btn_select";
-            this.btn_select.Size = new System.Drawing.Size(75, 23);
-            this.btn_select.TabIndex = 2;
-            this.btn_select.Text = "Select";
-            this.btn_select.UseVisualStyleBackColor = true;
-            // 
-            // dataRepeater1
-            // 
-            // 
-            // dataRepeater1.ItemTemplate
-            // 
-            this.dataRepeater1.ItemTemplate.Size = new System.Drawing.Size(381, 109);
-            this.dataRepeater1.Location = new System.Drawing.Point(6, 115);
-            this.dataRepeater1.Name = "dataRepeater1";
-            this.dataRepeater1.Size = new System.Drawing.Size(389, 135);
-            this.dataRepeater1.TabIndex = 1;
-            this.dataRepeater1.Text = "dataRepeater1";
+            this.btn_close.Location = new System.Drawing.Point(320, 295);
+            this.btn_close.Name = "btn_close";
+            this.btn_close.Size = new System.Drawing.Size(75, 23);
+            this.btn_close.TabIndex = 2;
+            this.btn_close.Text = "Close";
+            this.btn_close.UseVisualStyleBackColor = true;
             // 
             // label2
             // 
@@ -124,40 +109,58 @@
             // 
             this.txt_total_cost.Location = new System.Drawing.Point(295, 269);
             this.txt_total_cost.Name = "txt_total_cost";
+            this.txt_total_cost.ReadOnly = true;
             this.txt_total_cost.Size = new System.Drawing.Size(100, 20);
             this.txt_total_cost.TabIndex = 1;
             // 
-            // btn_close
+            // dataRepeater1
             // 
-            this.btn_close.Location = new System.Drawing.Point(320, 295);
-            this.btn_close.Name = "btn_close";
-            this.btn_close.Size = new System.Drawing.Size(75, 23);
-            this.btn_close.TabIndex = 2;
-            this.btn_close.Text = "Close";
-            this.btn_close.UseVisualStyleBackColor = true;
             // 
-            // label3
+            // dataRepeater1.ItemTemplate
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(26, 92);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(85, 13);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "Customer Name:";
+            this.dataRepeater1.ItemTemplate.Size = new System.Drawing.Size(381, 109);
+            this.dataRepeater1.Location = new System.Drawing.Point(6, 115);
+            this.dataRepeater1.Name = "dataRepeater1";
+            this.dataRepeater1.Size = new System.Drawing.Size(389, 135);
+            this.dataRepeater1.TabIndex = 1;
+            this.dataRepeater1.Text = "dataRepeater1";
             // 
-            // txt_customer_firstname
+            // grp_select
             // 
-            this.txt_customer_firstname.Location = new System.Drawing.Point(117, 89);
-            this.txt_customer_firstname.Name = "txt_customer_firstname";
-            this.txt_customer_firstname.Size = new System.Drawing.Size(100, 20);
-            this.txt_customer_firstname.TabIndex = 4;
+            this.grp_select.Controls.Add(this.btn_select);
+            this.grp_select.Controls.Add(this.txt_select);
+            this.grp_select.Controls.Add(this.label1);
+            this.grp_select.Location = new System.Drawing.Point(6, 19);
+            this.grp_select.Name = "grp_select";
+            this.grp_select.Size = new System.Drawing.Size(389, 41);
+            this.grp_select.TabIndex = 0;
+            this.grp_select.TabStop = false;
+            this.grp_select.Text = "Select";
             // 
-            // txt_customer_lastname
+            // btn_select
             // 
-            this.txt_customer_lastname.Location = new System.Drawing.Point(234, 89);
-            this.txt_customer_lastname.Name = "txt_customer_lastname";
-            this.txt_customer_lastname.Size = new System.Drawing.Size(100, 20);
-            this.txt_customer_lastname.TabIndex = 5;
+            this.btn_select.Location = new System.Drawing.Point(253, 11);
+            this.btn_select.Name = "btn_select";
+            this.btn_select.Size = new System.Drawing.Size(75, 23);
+            this.btn_select.TabIndex = 2;
+            this.btn_select.Text = "Select";
+            this.btn_select.UseVisualStyleBackColor = true;
+            // 
+            // txt_select
+            // 
+            this.txt_select.Location = new System.Drawing.Point(111, 13);
+            this.txt_select.Name = "txt_select";
+            this.txt_select.Size = new System.Drawing.Size(100, 20);
+            this.txt_select.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(55, 16);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(50, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Order ID:";
             // 
             // Bill
             // 
@@ -169,9 +172,9 @@
             this.Text = "Bill";
             this.grp_bill.ResumeLayout(false);
             this.grp_bill.PerformLayout();
+            this.dataRepeater1.ResumeLayout(false);
             this.grp_select.ResumeLayout(false);
             this.grp_select.PerformLayout();
-            this.dataRepeater1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

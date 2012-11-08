@@ -324,8 +324,16 @@ namespace StoreManagement
             txt_phone.ReadOnly = false;
             txt_email.ReadOnly = false;
 
+            //copy details of the logged in user,
+            //in order to make it available to him to modify
+            getFromBuffer();
+
             //center the groupbox
             grpBoxCenter(grp_create);
+
+            //set create button's and group's text to modify
+            btn_create.Text = "Modify";
+            grp_create.Text = "Modify";
         }
 
         //Modify the objects present on the form based on the looks of the form
@@ -511,14 +519,23 @@ namespace StoreManagement
             txt_lname.Text= StaffBuffer.lastname;
             txt_phone.Text = StaffBuffer.phone;
             txt_email.Text = StaffBuffer.email;
+            chk_administrator.Checked = StaffBuffer.admin;
+        }
+
+        //copy staff_id from the buffer to the form
+        //STAFF_BUFFER.Id --> FORM.STAFF_ID
+        private void getFromBufferID()
+        {
+            clearForm();
+            txt_staff_id.Text = StaffBuffer.Id.ToString();
         }
 
         //shows a message depending on the success of the
         //currently performed database operation
         private void showSuccessMessage(Boolean status, string type)
         {
-            MessageBox.Show("The operation was " + (status ? "" : "not") + " successfully performed on the database."+
-                (status ? "" : "\n.Some problem occured with the database"), "Database " + (status ? "success" : "failure"));
+            MessageBox.Show("The operation was " + (status ? "" : "not") + " successfully performed on the database." +
+                (status ? "" : "\nSome problem occured with the database."), "Database " + (status ? "success" : "failure"));
         }
 
         //perform databse operation based on the current mode
@@ -555,7 +572,7 @@ namespace StoreManagement
                 putToBufferID();
                 odbc.selectUserID();
             }
-            else if (mode == SELECTUN)
+            else if (mode == SELECTUN || mode == LOGIN)
             {
                 putToBufferUsername();
                 odbc.selectUserUN();
@@ -580,6 +597,7 @@ namespace StoreManagement
             if (odbc.checkLogin(login_txt_username.Text, CalculateMD5Hash(login_txt_password.Text)))
             {
                 StaffBuffer.setLogin();
+                performDBOperation();
                 mode = MAINMENU;
                 renderForm();
             }
@@ -618,18 +636,26 @@ namespace StoreManagement
         //[Create New]
         private void login_btn_create_new_Click(object sender, EventArgs e)
         {
-            if (!StaffBuffer.admin)
+            if ((StaffBuffer.admin && otlf.IsDisposed))
+            {
+                mode = CREATE;
+                renderForm();
+            }
+            else if (odbc.isStaffEmpty())
+            {
+                StaffBuffer.flushBuffer();
+                odbc.getNextMaxStaffId();
+                getFromBuffer();
+                mode = CREATE;
+                renderForm();
+            }
+            else if (!StaffBuffer.admin)
             {
                 StaffBuffer.flushBuffer();
                 odbc.getNextMaxStaffId();
                 getFromBuffer();
                 otlf = new OneTimeLoginForm();
                 otlf.Show();
-            }
-            else if(StaffBuffer.admin && otlf.IsDisposed)
-            {
-                mode = CREATE;
-                renderForm();
             }
         }
 
@@ -671,7 +697,9 @@ namespace StoreManagement
             if (mode == CREATE || mode == SELECTID || mode == SELECTUN || mode == DELETE)
                 mode = MODIFY;
             else if (mode == MAINMENU)
+            {
                 mode = MODIFYMAINMENU;
+            }
             renderForm();
         }
 

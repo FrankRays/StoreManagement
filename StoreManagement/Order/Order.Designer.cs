@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.grp_order = new System.Windows.Forms.GroupBox();
+            this.btn_add_products = new System.Windows.Forms.Button();
             this.dtp_date_of_dispatch = new System.Windows.Forms.DateTimePicker();
             this.dtp_date_of_order = new System.Windows.Forms.DateTimePicker();
             this.cmb_mode_of_payment = new System.Windows.Forms.ComboBox();
@@ -52,6 +53,7 @@
             // 
             // grp_order
             // 
+            this.grp_order.Controls.Add(this.btn_add_products);
             this.grp_order.Controls.Add(this.dtp_date_of_dispatch);
             this.grp_order.Controls.Add(this.dtp_date_of_order);
             this.grp_order.Controls.Add(this.cmb_mode_of_payment);
@@ -76,6 +78,16 @@
             this.grp_order.TabIndex = 0;
             this.grp_order.TabStop = false;
             this.grp_order.Text = "Order";
+            // 
+            // btn_add_products
+            // 
+            this.btn_add_products.Location = new System.Drawing.Point(117, 194);
+            this.btn_add_products.Name = "btn_add_products";
+            this.btn_add_products.Size = new System.Drawing.Size(85, 23);
+            this.btn_add_products.TabIndex = 18;
+            this.btn_add_products.Text = "Add Products";
+            this.btn_add_products.UseVisualStyleBackColor = true;
+            this.btn_add_products.Click += new System.EventHandler(this.btn_add_products_Click);
             // 
             // dtp_date_of_dispatch
             // 
@@ -129,6 +141,7 @@
             // 
             this.txt_order_id.Location = new System.Drawing.Point(162, 21);
             this.txt_order_id.Name = "txt_order_id";
+            this.txt_order_id.ReadOnly = true;
             this.txt_order_id.Size = new System.Drawing.Size(121, 20);
             this.txt_order_id.TabIndex = 12;
             // 
@@ -142,6 +155,7 @@
             this.rad_delete.TabStop = true;
             this.rad_delete.Text = "Delete";
             this.rad_delete.UseVisualStyleBackColor = true;
+            this.rad_delete.CheckedChanged += new System.EventHandler(this.rad_delete_CheckedChanged);
             // 
             // rad_modify
             // 
@@ -153,6 +167,7 @@
             this.rad_modify.TabStop = true;
             this.rad_modify.Text = "Modify";
             this.rad_modify.UseVisualStyleBackColor = true;
+            this.rad_modify.CheckedChanged += new System.EventHandler(this.rad_modify_CheckedChanged);
             // 
             // rad_select
             // 
@@ -164,6 +179,7 @@
             this.rad_select.TabStop = true;
             this.rad_select.Text = "Select";
             this.rad_select.UseVisualStyleBackColor = true;
+            this.rad_select.CheckedChanged += new System.EventHandler(this.rad_select_CheckedChanged);
             // 
             // rad_add
             // 
@@ -175,15 +191,18 @@
             this.rad_add.TabStop = true;
             this.rad_add.Text = "Add";
             this.rad_add.UseVisualStyleBackColor = true;
+            this.rad_add.CheckedChanged += new System.EventHandler(this.rad_add_CheckedChanged);
             // 
             // btn_cancel
             // 
+            this.btn_cancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btn_cancel.Location = new System.Drawing.Point(208, 223);
             this.btn_cancel.Name = "btn_cancel";
             this.btn_cancel.Size = new System.Drawing.Size(75, 23);
             this.btn_cancel.TabIndex = 7;
             this.btn_cancel.Text = "Cancel";
             this.btn_cancel.UseVisualStyleBackColor = true;
+            this.btn_cancel.Click += new System.EventHandler(this.btn_cancel_Click);
             // 
             // btn_accept
             // 
@@ -251,8 +270,10 @@
             // 
             // Order
             // 
+            this.AcceptButton = this.btn_accept;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.btn_cancel;
             this.ClientSize = new System.Drawing.Size(324, 290);
             this.Controls.Add(this.grp_order);
             this.Name = "Order";
@@ -284,5 +305,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btn_add_products;
     }
 }
