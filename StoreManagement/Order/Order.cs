@@ -31,10 +31,10 @@ namespace StoreManagement
             InitializeComponent();
 
             dtp_date_of_dispatch.Format = DateTimePickerFormat.Custom;
-            dtp_date_of_dispatch.CustomFormat = "dd-MM-yyyy";
+            dtp_date_of_dispatch.CustomFormat = "dd-MMM-yyyy";
 
             dtp_date_of_order.Format = DateTimePickerFormat.Custom;
-            dtp_date_of_order.CustomFormat = "dd-MM-yyyy";
+            dtp_date_of_order.CustomFormat = "dd-MMM-yyyy";
 
             odbc = new OracleDatabaseController();
 
@@ -191,7 +191,7 @@ namespace StoreManagement
 
         private void btn_add_products_Click(object sender, EventArgs e)
         {
-            if (apto.IsDisposed)
+            if (!apto.IsDisposed)
             {
                 apto.Show();
             }

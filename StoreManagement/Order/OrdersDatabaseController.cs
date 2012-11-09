@@ -66,7 +66,7 @@ namespace StoreManagement
 
         public Boolean addOrderAttributes()
         {
-            create("ORDER_" + OrdersBuffer.id.ToString(), "PRODUCT_NAME VARCHAR2(40) NOT NULL PRIMARY KEY, QUANTITY NUMBER NOT NULL, FOREIGN KEY (PRODUCT_NAME) REFERENCES PRODUCTS(PRODUCT_NAME)");
+            create("ORDER_" + OrdersBuffer.id.ToString(), "PRODUCT_NAME VARCHAR2(40) NOT NULL ENABLE, QUANTITY VARCHAR2(40) NOT NULL ENABLE,PRICE NUMBER NOT NULL ENABLE, PRIMARY KEY (PRODUCT_NAME) ENABLE");
             connection.Close();
             if (select("COUNT(1)", "ORDER_" + OrdersBuffer.id.ToString(), "ROWNUM=1"))
             {

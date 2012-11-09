@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.dataGrid_addToProducts = new System.Windows.Forms.DataGridView();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.dataRepeater1 = new Microsoft.VisualBasic.PowerPacks.DataRepeater();
             this.btn_cancel = new System.Windows.Forms.Button();
             this.btn_accept = new System.Windows.Forms.Button();
             this.txt_quantity = new System.Windows.Forms.TextBox();
@@ -40,15 +40,15 @@
             this.txt_order_id = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
-            this.dataRepeater1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGrid_addToProducts)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.dataGrid_addToProducts);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.dataRepeater1);
             this.groupBox1.Controls.Add(this.btn_cancel);
             this.groupBox1.Controls.Add(this.btn_accept);
             this.groupBox1.Controls.Add(this.txt_quantity);
@@ -61,6 +61,15 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Add to products";
+            // 
+            // dataGrid_addToProducts
+            // 
+            this.dataGrid_addToProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGrid_addToProducts.Location = new System.Drawing.Point(10, 144);
+            this.dataGrid_addToProducts.Name = "dataGrid_addToProducts";
+            this.dataGrid_addToProducts.ReadOnly = true;
+            this.dataGrid_addToProducts.Size = new System.Drawing.Size(342, 112);
+            this.dataGrid_addToProducts.TabIndex = 10;
             // 
             // label4
             // 
@@ -89,26 +98,16 @@
             this.label2.TabIndex = 8;
             this.label2.Text = "Product Name:";
             // 
-            // dataRepeater1
-            // 
-            // 
-            // dataRepeater1.ItemTemplate
-            // 
-            this.dataRepeater1.ItemTemplate.Size = new System.Drawing.Size(342, 100);
-            this.dataRepeater1.Location = new System.Drawing.Point(6, 143);
-            this.dataRepeater1.Name = "dataRepeater1";
-            this.dataRepeater1.Size = new System.Drawing.Size(350, 110);
-            this.dataRepeater1.TabIndex = 7;
-            this.dataRepeater1.Text = "dataRepeater1";
-            // 
             // btn_cancel
             // 
+            this.btn_cancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btn_cancel.Location = new System.Drawing.Point(277, 272);
             this.btn_cancel.Name = "btn_cancel";
             this.btn_cancel.Size = new System.Drawing.Size(75, 23);
             this.btn_cancel.TabIndex = 5;
             this.btn_cancel.Text = "Cancel";
             this.btn_cancel.UseVisualStyleBackColor = true;
+            this.btn_cancel.Click += new System.EventHandler(this.btn_cancel_Click);
             // 
             // btn_accept
             // 
@@ -118,6 +117,7 @@
             this.btn_accept.TabIndex = 4;
             this.btn_accept.Text = "Accept";
             this.btn_accept.UseVisualStyleBackColor = true;
+            this.btn_accept.Click += new System.EventHandler(this.btn_accept_Click);
             // 
             // txt_quantity
             // 
@@ -164,7 +164,7 @@
             this.Load += new System.EventHandler(this.AddProductsToOrder_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.dataRepeater1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGrid_addToProducts)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -172,7 +172,6 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private Microsoft.VisualBasic.PowerPacks.DataRepeater dataRepeater1;
         private System.Windows.Forms.Button btn_cancel;
         private System.Windows.Forms.Button btn_accept;
         private System.Windows.Forms.TextBox txt_quantity;
@@ -182,5 +181,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.DataGridView dataGrid_addToProducts;
     }
 }

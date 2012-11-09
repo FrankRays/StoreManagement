@@ -73,6 +73,7 @@
     <Compile Include="Order\AddProductsToOrder.Designer.cs">
       <DependentUpon>AddProductsToOrder.cs</DependentUpon>
     </Compile>
+    <Compile Include="Order\AddProductsToOrderDatabaseController.cs" />
     <Compile Include="Order\Bill.cs">
       <SubType>Form</SubType>
     </Compile>

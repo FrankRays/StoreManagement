@@ -8,7 +8,6 @@ using System.Text;
 using System.Windows.Forms;
 using System.Security.Cryptography;
 
-
 namespace StoreManagement
 {
     public partial class form_login : Form
@@ -17,16 +16,7 @@ namespace StoreManagement
         //database operation definations to be used from this form
         private OracleDatabaseController odbc;
 
-        //create an instance of one time login form
-        //use it for one time login, form if new accounts are to be created
         private OneTimeLoginForm otlf;
-
-        //create form objects of all the forms required for manipulating the database
-        private Order order;
-        private Bill bill;
-        private Products products;
-        private ProductCatagories productCatagories;
-        private Suppliers suppliers;
 
         //The following constants defines a int value for each mode the form is
         //these constants are then assigned to the variable mode which stores the current mode
@@ -36,22 +26,14 @@ namespace StoreManagement
         public form_login()
         {
             InitializeComponent();
+            
             mode = LOGIN;
         }
 
         private void form_login_Load(object sender, EventArgs e)
         {
-            //initialize the oracle database controller
             odbc = new OracleDatabaseController();
-
-            //inittialize all the other forms to be used from this form
             otlf = new OneTimeLoginForm();
-            suppliers = new Suppliers();
-            products = new Products();
-            productCatagories = new ProductCatagories();
-            order = new Order();
-            bill = new Bill();
-            StaffBuffer.loggedIn = false;
             renderForm();
         }
 
@@ -72,8 +54,6 @@ namespace StoreManagement
             menu_strip_modify.Enabled = true;
         }
 
-        //renders the form when the user loggs in
-        //customized to the user's 
         private void renderLogin()
         {
             //select the login groupbox and make it visible
@@ -92,30 +72,6 @@ namespace StoreManagement
             menu_strip_select.Enabled = false;
             menu_strip_select_id.Enabled = false;
             menu_strip_select_username.Enabled = false;
-        }
-
-        //to render the view for a logged in user
-        private void renderLoggedIn()
-        {
-            //modify the accessibility of view from the menu strip
-            //and make everything from view available to the user
-            menu_strip_products.Enabled = 
-            menu_strip_product_categories.Enabled = 
-            menu_strip_suppliers.Enabled = 
-            menu_strip_orders.Enabled = 
-            menu_strip_bill.Enabled = true;
-        }
-
-        //to render the view for a logged out user
-        private void renderLoggedOut()
-        {
-            //modify the accessibility of view from the menu strip
-            //and make everything from view not available to the user
-            menu_strip_products.Enabled = 
-            menu_strip_product_categories.Enabled = 
-            menu_strip_suppliers.Enabled = 
-            menu_strip_orders.Enabled = 
-            menu_strip_bill.Enabled = false;
         }
 
         private void renderCreate()
@@ -288,7 +244,7 @@ namespace StoreManagement
             //disable all the menu operations
             //except for modify
             menu_strip_add.Enabled = false;
-            menu_strip_products.Enabled = false;
+            menu_strip_create.Enabled = false;
             menu_strip_delete.Enabled = false;
             menu_strip_modify.Enabled = true;
             menu_strip_select.Enabled = false;
@@ -308,7 +264,7 @@ namespace StoreManagement
 
             //disable all the menu operations
             menu_strip_add.Enabled = false;
-            menu_strip_products.Enabled = false;
+            menu_strip_create.Enabled = false;
             menu_strip_delete.Enabled = false;
             menu_strip_modify.Enabled = false;
             menu_strip_select.Enabled = false;
@@ -325,29 +281,15 @@ namespace StoreManagement
             txt_phone.ReadOnly = false;
             txt_email.ReadOnly = false;
 
-            //copy details of the logged in user,
-            //in order to make it available to him to modify
-            getFromBuffer();
-
             //center the groupbox
             grpBoxCenter(grp_create);
 
-            //set create button's and group's text to modify
-            btn_create.Text = "Modify";
-            grp_create.Text = "Modify";
+
         }
 
         //Modify the objects present on the form based on the looks of the form
         private void renderForm()
         {
-            if (StaffBuffer.loggedIn)
-            {
-                renderLoggedIn();
-            }
-            else
-            {
-                renderLoggedOut();
-            }
             if (mode == LOGIN)
             {
                 renderLogin();
@@ -376,7 +318,7 @@ namespace StoreManagement
             {
                 renderMainMenu();
             }
-            else if (mode == MODIFYMAINMENU)
+            else if(mode == MODIFYMAINMENU)
             {
                 renderModifyMainMenu();
             }
@@ -397,7 +339,6 @@ namespace StoreManagement
             {
                 sb.Append(hash[i].ToString("X2"));
             }
-            Console.WriteLine(sb.ToString());
             return sb.ToString();
         }
 
@@ -521,23 +462,14 @@ namespace StoreManagement
             txt_lname.Text= StaffBuffer.lastname;
             txt_phone.Text = StaffBuffer.phone;
             txt_email.Text = StaffBuffer.email;
-            chk_administrator.Checked = StaffBuffer.admin;
-        }
-
-        //copy staff_id from the buffer to the form
-        //STAFF_BUFFER.Id --> FORM.STAFF_ID
-        private void getFromBufferID()
-        {
-            clearForm();
-            txt_staff_id.Text = StaffBuffer.Id.ToString();
         }
 
         //shows a message depending on the success of the
         //currently performed database operation
         private void showSuccessMessage(Boolean status, string type)
         {
-            MessageBox.Show("The operation was " + (status ? "" : "not") + " successfully performed on the database." +
-                (status ? "" : "\nSome problem occured with the database."), "Database " + (status ? "success" : "failure"));
+            MessageBox.Show("The operation was " + (status ? "" : "not") + " successfully performed on the database."+
+                (status ? "" : "\n.Some problem occured with the database"), "Database " + (status ? "success" : "failure"));
         }
 
         //perform databse operation based on the current mode
@@ -574,7 +506,7 @@ namespace StoreManagement
                 putToBufferID();
                 odbc.selectUserID();
             }
-            else if (mode == SELECTUN || mode == LOGIN)
+            else if (mode == SELECTUN)
             {
                 putToBufferUsername();
                 odbc.selectUserUN();
@@ -599,7 +531,6 @@ namespace StoreManagement
             if (odbc.checkLogin(login_txt_username.Text, CalculateMD5Hash(login_txt_password.Text)))
             {
                 StaffBuffer.setLogin();
-                performDBOperation();
                 mode = MAINMENU;
                 renderForm();
             }
@@ -620,8 +551,6 @@ namespace StoreManagement
         //[Cancel]
         private void btn_cancel_Click(object sender, EventArgs e)
         {
-            if (mode == CREATE || mode == MODIFY || mode == DELETE || mode == SELECTID || mode == SELECTUN)
-                StaffBuffer.admin = false;
             if (!(mode == MODIFYMAINMENU))
             {
                 mode = LOGIN;
@@ -638,26 +567,19 @@ namespace StoreManagement
         //[Create New]
         private void login_btn_create_new_Click(object sender, EventArgs e)
         {
-            if ((StaffBuffer.admin && otlf.IsDisposed))
-            {
-                mode = CREATE;
-                renderForm();
-            }
-            else if (odbc.isStaffEmpty())
+            if (!StaffBuffer.admin)
             {
                 StaffBuffer.flushBuffer();
-                odbc.getNextMaxStaffId();
-                getFromBuffer();
-                mode = CREATE;
-                renderForm();
-            }
-            else if (!StaffBuffer.admin)
-            {
-                StaffBuffer.flushBuffer();
-                odbc.getNextMaxStaffId();
+                odbc.getNextMaxId();
                 getFromBuffer();
                 otlf = new OneTimeLoginForm();
                 otlf.Show();
+            }
+            else if(StaffBuffer.admin && otlf.IsDisposed)
+            {
+                mode = CREATE;
+                renderForm();
+                StaffBuffer.admin = false;
             }
         }
 
@@ -699,13 +621,17 @@ namespace StoreManagement
             if (mode == CREATE || mode == SELECTID || mode == SELECTUN || mode == DELETE)
                 mode = MODIFY;
             else if (mode == MAINMENU)
-            {
                 mode = MODIFYMAINMENU;
-            }
             renderForm();
         }
 
-
+        //open the Create group in SELECT mode when the user clicks on
+        //View > User Accounts
+        private void userAccountsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            mode = SELECTUN;
+            renderForm();
+        }
 
         //Perform the logout operation and exit to the login screen when user clicks on
         //File > Logout
@@ -741,94 +667,14 @@ namespace StoreManagement
             renderForm();
         }
 
-        //when the user clicks exit then, remove this object completely from the memory
-        //---MAIN MENU---   -->  [Exit]
         private void btn_main_menu_exit_Click(object sender, EventArgs e)
         {
             this.Dispose();
         }
 
-        //when the user clicks modify, from the main menu,
-        //then goto modify mode designed for main menu
-        //---MAIN MENU--- --> [Modify My Account]
         private void btn_modify_account_Click(object sender, EventArgs e)
         {
             modifyToolStripMenuItem_Click(sender, e);
-        }
-
-        //when user clicks products from,
-        //View -> Products
-        private void menu_strip_products_Click(object sender, EventArgs e)
-        {
-            if (products.IsDisposed)
-                products = new Products();
-            products.Show();
-        }
-
-        //when user clicks suppliers from,
-        //View -> Suppliers
-        private void menu_strip_suppliers_Click(object sender, EventArgs e)
-        {
-            if (suppliers.IsDisposed)
-                suppliers = new Suppliers();
-            suppliers.Show();
-        }
-
-        //when the user clicks orders from,
-        //View -> Orders
-        private void menu_strip_orders_Click(object sender, EventArgs e)
-        {
-            if (order.IsDisposed)
-                order = new Order();
-            order.Show();
-        }
-
-        //when the user clicks bill from,
-        //View -> Bill
-        private void menu_strip_bill_Click(object sender, EventArgs e)
-        {
-            if(bill.IsDisposed)
-                bill = new Bill();
-            bill.Show();
-        }
-
-        //when the user clicks product categories from,
-        //View -> Product Categories
-        private void menu_strip_product_categories_Click(object sender, EventArgs e)
-        {
-            if (productCatagories.IsDisposed)
-                productCatagories = new ProductCatagories();
-            productCatagories.Show();
-        }
-
-        //---MAIN MENU---   ->   [Products]
-        private void btn_products_Click(object sender, EventArgs e)
-        {
-            menu_strip_products_Click(sender, e);
-        }
-
-        //---MAIN MENU---   ->   [Product Categories]
-        private void btn_product_categories_Click(object sender, EventArgs e)
-        {
-            menu_strip_product_categories_Click(sender, e);
-        }
-
-        //---MAIN MENU---   ->   [Suppliers]
-        private void btn_supplies_Click(object sender, EventArgs e)
-        {
-            menu_strip_suppliers_Click(sender, e);
-        }
-
-        //---MAIN MENU---   ->   [Orders]
-        private void btn_orders_Click(object sender, EventArgs e)
-        {
-            menu_strip_orders_Click(sender, e);
-        }
-
-        //---MAIN MENU---   ->   [Bill]
-        private void btn_bill_Click(object sender, EventArgs e)
-        {
-            menu_strip_bill_Click(sender, e);
         }
     }
 }

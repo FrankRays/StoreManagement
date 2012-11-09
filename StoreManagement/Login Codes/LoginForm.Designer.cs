@@ -61,11 +61,7 @@
             this.menu_strip_logout = new System.Windows.Forms.ToolStripMenuItem();
             this.menu_strip_exit = new System.Windows.Forms.ToolStripMenuItem();
             this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.menu_strip_products = new System.Windows.Forms.ToolStripMenuItem();
-            this.menu_strip_suppliers = new System.Windows.Forms.ToolStripMenuItem();
-            this.menu_strip_orders = new System.Windows.Forms.ToolStripMenuItem();
-            this.menu_strip_bill = new System.Windows.Forms.ToolStripMenuItem();
-            this.menu_strip_product_categories = new System.Windows.Forms.ToolStripMenuItem();
+            this.menu_strip_create = new System.Windows.Forms.ToolStripMenuItem();
             this.operationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menu_strip_select = new System.Windows.Forms.ToolStripMenuItem();
             this.menu_strip_select_id = new System.Windows.Forms.ToolStripMenuItem();
@@ -76,12 +72,12 @@
             this.grp_main_menu = new System.Windows.Forms.GroupBox();
             this.btn_main_menu_exit = new System.Windows.Forms.Button();
             this.btn_logout = new System.Windows.Forms.Button();
+            this.btn_bill = new System.Windows.Forms.Button();
             this.btn_orders = new System.Windows.Forms.Button();
             this.btn_supplies = new System.Windows.Forms.Button();
-            this.btn_product_categories = new System.Windows.Forms.Button();
+            this.btn_product_catagories = new System.Windows.Forms.Button();
             this.btn_products = new System.Windows.Forms.Button();
             this.btn_modify_account = new System.Windows.Forms.Button();
-            this.btn_bill = new System.Windows.Forms.Button();
             this.grp_login.SuspendLayout();
             this.grp_create.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -374,69 +370,37 @@
             this.menu_strip_logout,
             this.menu_strip_exit});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(35, 20);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
             // 
             // menu_strip_logout
             // 
             this.menu_strip_logout.Name = "menu_strip_logout";
-            this.menu_strip_logout.Size = new System.Drawing.Size(107, 22);
+            this.menu_strip_logout.Size = new System.Drawing.Size(112, 22);
             this.menu_strip_logout.Text = "Logout";
             this.menu_strip_logout.Click += new System.EventHandler(this.logoutToolStripMenuItem_Click);
             // 
             // menu_strip_exit
             // 
             this.menu_strip_exit.Name = "menu_strip_exit";
-            this.menu_strip_exit.Size = new System.Drawing.Size(107, 22);
+            this.menu_strip_exit.Size = new System.Drawing.Size(112, 22);
             this.menu_strip_exit.Text = "Exit";
             this.menu_strip_exit.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // viewToolStripMenuItem
             // 
             this.viewToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.menu_strip_products,
-            this.menu_strip_suppliers,
-            this.menu_strip_orders,
-            this.menu_strip_bill,
-            this.menu_strip_product_categories});
+            this.menu_strip_create});
             this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
-            this.viewToolStripMenuItem.Size = new System.Drawing.Size(41, 20);
+            this.viewToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.viewToolStripMenuItem.Text = "View";
             // 
-            // menu_strip_products
+            // menu_strip_create
             // 
-            this.menu_strip_products.Name = "menu_strip_products";
-            this.menu_strip_products.Size = new System.Drawing.Size(166, 22);
-            this.menu_strip_products.Text = "Products";
-            this.menu_strip_products.Click += new System.EventHandler(this.menu_strip_products_Click);
-            // 
-            // menu_strip_suppliers
-            // 
-            this.menu_strip_suppliers.Name = "menu_strip_suppliers";
-            this.menu_strip_suppliers.Size = new System.Drawing.Size(166, 22);
-            this.menu_strip_suppliers.Text = "Suppliers";
-            this.menu_strip_suppliers.Click += new System.EventHandler(this.menu_strip_suppliers_Click);
-            // 
-            // menu_strip_orders
-            // 
-            this.menu_strip_orders.Name = "menu_strip_orders";
-            this.menu_strip_orders.Size = new System.Drawing.Size(166, 22);
-            this.menu_strip_orders.Text = "Orders";
-            this.menu_strip_orders.Click += new System.EventHandler(this.menu_strip_orders_Click);
-            // 
-            // menu_strip_bill
-            // 
-            this.menu_strip_bill.Name = "menu_strip_bill";
-            this.menu_strip_bill.Size = new System.Drawing.Size(166, 22);
-            this.menu_strip_bill.Text = "Bill";
-            this.menu_strip_bill.Click += new System.EventHandler(this.menu_strip_bill_Click);
-            // 
-            // menu_strip_product_categories
-            // 
-            this.menu_strip_product_categories.Name = "menu_strip_product_categories";
-            this.menu_strip_product_categories.Size = new System.Drawing.Size(166, 22);
-            this.menu_strip_product_categories.Text = "Product Categories";
-            this.menu_strip_product_categories.Click += new System.EventHandler(this.menu_strip_product_categories_Click);
+            this.menu_strip_create.Name = "menu_strip_create";
+            this.menu_strip_create.Size = new System.Drawing.Size(108, 22);
+            this.menu_strip_create.Text = "Create";
+            this.menu_strip_create.Click += new System.EventHandler(this.userAccountsToolStripMenuItem_Click);
             // 
             // operationToolStripMenuItem
             // 
@@ -446,7 +410,7 @@
             this.menu_strip_delete,
             this.menu_strip_modify});
             this.operationToolStripMenuItem.Name = "operationToolStripMenuItem";
-            this.operationToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
+            this.operationToolStripMenuItem.Size = new System.Drawing.Size(72, 20);
             this.operationToolStripMenuItem.Text = "Operation";
             // 
             // menu_strip_select
@@ -455,41 +419,41 @@
             this.menu_strip_select_id,
             this.menu_strip_select_username});
             this.menu_strip_select.Name = "menu_strip_select";
-            this.menu_strip_select.Size = new System.Drawing.Size(106, 22);
+            this.menu_strip_select.Size = new System.Drawing.Size(112, 22);
             this.menu_strip_select.Text = "Select";
             // 
             // menu_strip_select_id
             // 
             this.menu_strip_select_id.Name = "menu_strip_select_id";
-            this.menu_strip_select_id.Size = new System.Drawing.Size(137, 22);
+            this.menu_strip_select_id.Size = new System.Drawing.Size(143, 22);
             this.menu_strip_select_id.Text = "By ID";
             this.menu_strip_select_id.Click += new System.EventHandler(this.byIDToolStripMenuItem_Click);
             // 
             // menu_strip_select_username
             // 
             this.menu_strip_select_username.Name = "menu_strip_select_username";
-            this.menu_strip_select_username.Size = new System.Drawing.Size(137, 22);
+            this.menu_strip_select_username.Size = new System.Drawing.Size(143, 22);
             this.menu_strip_select_username.Text = "By Username";
             this.menu_strip_select_username.Click += new System.EventHandler(this.byUsernameToolStripMenuItem_Click);
             // 
             // menu_strip_add
             // 
             this.menu_strip_add.Name = "menu_strip_add";
-            this.menu_strip_add.Size = new System.Drawing.Size(106, 22);
+            this.menu_strip_add.Size = new System.Drawing.Size(112, 22);
             this.menu_strip_add.Text = "Add";
             this.menu_strip_add.Click += new System.EventHandler(this.addToolStripMenuItem_Click);
             // 
             // menu_strip_delete
             // 
             this.menu_strip_delete.Name = "menu_strip_delete";
-            this.menu_strip_delete.Size = new System.Drawing.Size(106, 22);
+            this.menu_strip_delete.Size = new System.Drawing.Size(112, 22);
             this.menu_strip_delete.Text = "Delete";
             this.menu_strip_delete.Click += new System.EventHandler(this.deleteToolStripMenuItem1_Click);
             // 
             // menu_strip_modify
             // 
             this.menu_strip_modify.Name = "menu_strip_modify";
-            this.menu_strip_modify.Size = new System.Drawing.Size(106, 22);
+            this.menu_strip_modify.Size = new System.Drawing.Size(112, 22);
             this.menu_strip_modify.Text = "Modify";
             this.menu_strip_modify.Click += new System.EventHandler(this.modifyToolStripMenuItem_Click);
             // 
@@ -500,7 +464,7 @@
             this.grp_main_menu.Controls.Add(this.btn_bill);
             this.grp_main_menu.Controls.Add(this.btn_orders);
             this.grp_main_menu.Controls.Add(this.btn_supplies);
-            this.grp_main_menu.Controls.Add(this.btn_product_categories);
+            this.grp_main_menu.Controls.Add(this.btn_product_catagories);
             this.grp_main_menu.Controls.Add(this.btn_products);
             this.grp_main_menu.Controls.Add(this.btn_modify_account);
             this.grp_main_menu.Location = new System.Drawing.Point(641, 46);
@@ -530,6 +494,15 @@
             this.btn_logout.UseVisualStyleBackColor = true;
             this.btn_logout.Click += new System.EventHandler(this.btn_logout_Click);
             // 
+            // btn_bill
+            // 
+            this.btn_bill.Location = new System.Drawing.Point(50, 180);
+            this.btn_bill.Name = "btn_bill";
+            this.btn_bill.Size = new System.Drawing.Size(247, 23);
+            this.btn_bill.TabIndex = 5;
+            this.btn_bill.Text = "Bill";
+            this.btn_bill.UseVisualStyleBackColor = true;
+            // 
             // btn_orders
             // 
             this.btn_orders.Location = new System.Drawing.Point(50, 149);
@@ -538,7 +511,6 @@
             this.btn_orders.TabIndex = 4;
             this.btn_orders.Text = "Orders";
             this.btn_orders.UseVisualStyleBackColor = true;
-            this.btn_orders.Click += new System.EventHandler(this.btn_orders_Click);
             // 
             // btn_supplies
             // 
@@ -548,17 +520,15 @@
             this.btn_supplies.TabIndex = 3;
             this.btn_supplies.Text = "Suppliers";
             this.btn_supplies.UseVisualStyleBackColor = true;
-            this.btn_supplies.Click += new System.EventHandler(this.btn_supplies_Click);
             // 
-            // btn_product_categories
+            // btn_product_catagories
             // 
-            this.btn_product_categories.Location = new System.Drawing.Point(50, 91);
-            this.btn_product_categories.Name = "btn_product_categories";
-            this.btn_product_categories.Size = new System.Drawing.Size(247, 23);
-            this.btn_product_categories.TabIndex = 2;
-            this.btn_product_categories.Text = "Product Categories";
-            this.btn_product_categories.UseVisualStyleBackColor = true;
-            this.btn_product_categories.Click += new System.EventHandler(this.btn_product_categories_Click);
+            this.btn_product_catagories.Location = new System.Drawing.Point(50, 91);
+            this.btn_product_catagories.Name = "btn_product_catagories";
+            this.btn_product_catagories.Size = new System.Drawing.Size(247, 23);
+            this.btn_product_catagories.TabIndex = 2;
+            this.btn_product_catagories.Text = "Product Catagories";
+            this.btn_product_catagories.UseVisualStyleBackColor = true;
             // 
             // btn_products
             // 
@@ -568,7 +538,6 @@
             this.btn_products.TabIndex = 1;
             this.btn_products.Text = "Products";
             this.btn_products.UseVisualStyleBackColor = true;
-            this.btn_products.Click += new System.EventHandler(this.btn_products_Click);
             // 
             // btn_modify_account
             // 
@@ -579,16 +548,6 @@
             this.btn_modify_account.Text = "Modify My Account";
             this.btn_modify_account.UseVisualStyleBackColor = true;
             this.btn_modify_account.Click += new System.EventHandler(this.btn_modify_account_Click);
-            // 
-            // btn_bill
-            // 
-            this.btn_bill.Location = new System.Drawing.Point(50, 180);
-            this.btn_bill.Name = "btn_bill";
-            this.btn_bill.Size = new System.Drawing.Size(247, 23);
-            this.btn_bill.TabIndex = 5;
-            this.btn_bill.Text = "Bill";
-            this.btn_bill.UseVisualStyleBackColor = true;
-            this.btn_bill.Click += new System.EventHandler(this.btn_bill_Click);
             // 
             // form_login
             // 
@@ -650,7 +609,7 @@
         private System.Windows.Forms.ToolStripMenuItem menu_strip_logout;
         private System.Windows.Forms.ToolStripMenuItem menu_strip_exit;
         private System.Windows.Forms.ToolStripMenuItem viewToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem menu_strip_products;
+        private System.Windows.Forms.ToolStripMenuItem menu_strip_create;
         private System.Windows.Forms.ToolStripMenuItem operationToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem menu_strip_select;
         private System.Windows.Forms.ToolStripMenuItem menu_strip_add;
@@ -660,17 +619,13 @@
         private System.Windows.Forms.ToolStripMenuItem menu_strip_select_username;
         private System.Windows.Forms.GroupBox grp_main_menu;
         private System.Windows.Forms.Button btn_logout;
+        private System.Windows.Forms.Button btn_bill;
         private System.Windows.Forms.Button btn_orders;
         private System.Windows.Forms.Button btn_supplies;
-        private System.Windows.Forms.Button btn_product_categories;
+        private System.Windows.Forms.Button btn_product_catagories;
         private System.Windows.Forms.Button btn_products;
         private System.Windows.Forms.Button btn_modify_account;
         private System.Windows.Forms.Button btn_main_menu_exit;
-        private System.Windows.Forms.ToolStripMenuItem menu_strip_suppliers;
-        private System.Windows.Forms.ToolStripMenuItem menu_strip_orders;
-        private System.Windows.Forms.ToolStripMenuItem menu_strip_bill;
-        private System.Windows.Forms.ToolStripMenuItem menu_strip_product_categories;
-        private System.Windows.Forms.Button btn_bill;
     }
 }
 

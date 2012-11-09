@@ -1,6 +1,6 @@
 ﻿namespace StoreManagement
 {
-    partial class Bill
+    partial class OracleDatabaseController
     {
         /// <summary>
         /// Required designer variable.
@@ -29,31 +29,31 @@
         private void InitializeComponent()
         {
             this.grp_bill = new System.Windows.Forms.GroupBox();
+            this.data_grid_view_bill = new System.Windows.Forms.DataGridView();
             this.txt_customer_lastname = new System.Windows.Forms.TextBox();
             this.txt_customer_firstname = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.btn_close = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.txt_total_cost = new System.Windows.Forms.TextBox();
-            this.dataRepeater1 = new Microsoft.VisualBasic.PowerPacks.DataRepeater();
             this.grp_select = new System.Windows.Forms.GroupBox();
-            this.btn_select = new System.Windows.Forms.Button();
+            this.btn_generate = new System.Windows.Forms.Button();
             this.txt_select = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.grp_bill.SuspendLayout();
-            this.dataRepeater1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.data_grid_view_bill)).BeginInit();
             this.grp_select.SuspendLayout();
             this.SuspendLayout();
             // 
             // grp_bill
             // 
+            this.grp_bill.Controls.Add(this.data_grid_view_bill);
             this.grp_bill.Controls.Add(this.txt_customer_lastname);
             this.grp_bill.Controls.Add(this.txt_customer_firstname);
             this.grp_bill.Controls.Add(this.label3);
             this.grp_bill.Controls.Add(this.btn_close);
             this.grp_bill.Controls.Add(this.label2);
             this.grp_bill.Controls.Add(this.txt_total_cost);
-            this.grp_bill.Controls.Add(this.dataRepeater1);
             this.grp_bill.Controls.Add(this.grp_select);
             this.grp_bill.Location = new System.Drawing.Point(12, 12);
             this.grp_bill.Name = "grp_bill";
@@ -61,6 +61,15 @@
             this.grp_bill.TabIndex = 0;
             this.grp_bill.TabStop = false;
             this.grp_bill.Text = "Bill";
+            // 
+            // data_grid_view_bill
+            // 
+            this.data_grid_view_bill.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.data_grid_view_bill.Location = new System.Drawing.Point(7, 118);
+            this.data_grid_view_bill.Name = "data_grid_view_bill";
+            this.data_grid_view_bill.ReadOnly = true;
+            this.data_grid_view_bill.Size = new System.Drawing.Size(388, 145);
+            this.data_grid_view_bill.TabIndex = 6;
             // 
             // txt_customer_lastname
             // 
@@ -95,6 +104,7 @@
             this.btn_close.TabIndex = 2;
             this.btn_close.Text = "Close";
             this.btn_close.UseVisualStyleBackColor = true;
+            this.btn_close.Click += new System.EventHandler(this.btn_close_Click);
             // 
             // label2
             // 
@@ -113,21 +123,9 @@
             this.txt_total_cost.Size = new System.Drawing.Size(100, 20);
             this.txt_total_cost.TabIndex = 1;
             // 
-            // dataRepeater1
-            // 
-            // 
-            // dataRepeater1.ItemTemplate
-            // 
-            this.dataRepeater1.ItemTemplate.Size = new System.Drawing.Size(381, 109);
-            this.dataRepeater1.Location = new System.Drawing.Point(6, 115);
-            this.dataRepeater1.Name = "dataRepeater1";
-            this.dataRepeater1.Size = new System.Drawing.Size(389, 135);
-            this.dataRepeater1.TabIndex = 1;
-            this.dataRepeater1.Text = "dataRepeater1";
-            // 
             // grp_select
             // 
-            this.grp_select.Controls.Add(this.btn_select);
+            this.grp_select.Controls.Add(this.btn_generate);
             this.grp_select.Controls.Add(this.txt_select);
             this.grp_select.Controls.Add(this.label1);
             this.grp_select.Location = new System.Drawing.Point(6, 19);
@@ -137,14 +135,15 @@
             this.grp_select.TabStop = false;
             this.grp_select.Text = "Select";
             // 
-            // btn_select
+            // btn_generate
             // 
-            this.btn_select.Location = new System.Drawing.Point(253, 11);
-            this.btn_select.Name = "btn_select";
-            this.btn_select.Size = new System.Drawing.Size(75, 23);
-            this.btn_select.TabIndex = 2;
-            this.btn_select.Text = "Select";
-            this.btn_select.UseVisualStyleBackColor = true;
+            this.btn_generate.Location = new System.Drawing.Point(253, 11);
+            this.btn_generate.Name = "btn_generate";
+            this.btn_generate.Size = new System.Drawing.Size(75, 23);
+            this.btn_generate.TabIndex = 2;
+            this.btn_generate.Text = "Generate Bill";
+            this.btn_generate.UseVisualStyleBackColor = true;
+            this.btn_generate.Click += new System.EventHandler(this.btn_generate_Click);
             // 
             // txt_select
             // 
@@ -172,7 +171,7 @@
             this.Text = "Bill";
             this.grp_bill.ResumeLayout(false);
             this.grp_bill.PerformLayout();
-            this.dataRepeater1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.data_grid_view_bill)).EndInit();
             this.grp_select.ResumeLayout(false);
             this.grp_select.PerformLayout();
             this.ResumeLayout(false);
@@ -183,15 +182,15 @@
 
         private System.Windows.Forms.GroupBox grp_bill;
         private System.Windows.Forms.GroupBox grp_select;
-        private System.Windows.Forms.Button btn_select;
+        private System.Windows.Forms.Button btn_generate;
         private System.Windows.Forms.TextBox txt_select;
         private System.Windows.Forms.Label label1;
-        private Microsoft.VisualBasic.PowerPacks.DataRepeater dataRepeater1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txt_total_cost;
         private System.Windows.Forms.Button btn_close;
         private System.Windows.Forms.TextBox txt_customer_lastname;
         private System.Windows.Forms.TextBox txt_customer_firstname;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.DataGridView data_grid_view_bill;
     }
 }

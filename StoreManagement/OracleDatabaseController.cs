@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using System.Data;
+using Microsoft.VisualBasic;
 using Oracle.DataAccess.Client;
+using System.Windows.Forms;
 
 namespace StoreManagement
 {
@@ -15,6 +17,7 @@ namespace StoreManagement
         private string query;
         private OracleDataReader reader;
         private OracleDataAdapter adapter;
+        private DataSet dataSet;
 
         public OracleDatabaseController()
         {
@@ -30,6 +33,29 @@ namespace StoreManagement
             try
             {
                 query = "select " + columns + " from " + table + " where " + where;
+                command = new OracleCommand(query, connection);
+                connection.Open();
+                reader = command.ExecuteReader();
+                if (reader.HasRows)
+                    return true;
+                else
+                    return false;
+            }
+            catch (Oracle.DataAccess.Client.OracleException oe)
+            {
+                Console.WriteLine(oe);
+                return false;
+            }
+        }
+
+        //to perform the select query on the database
+        //an abstratcion for casting queries
+        //without where
+        protected Boolean select(string columns, string table)
+        {
+            try
+            {
+                query = "select " + columns + " from " + table ;
                 command = new OracleCommand(query, connection);
                 connection.Open();
                 reader = command.ExecuteReader();
@@ -175,6 +201,50 @@ namespace StoreManagement
                 Console.WriteLine(oe);
                 return 0;
             }
+        }
+
+        //assign a dataset to a datagrid
+        public DataGridView getDataSet(string table, DataGridView dataGridView)
+        {
+            try
+            {
+                query = "SELECT * FROM " + table;
+                command = new OracleCommand(query, connection);
+                connection.Open();
+                adapter = new OracleDataAdapter(query,connection);
+                dataSet = new DataSet();
+                adapter.Fill(dataSet, "test");
+                dataGridView.DataSource = dataSet.Tables[0];
+                connection.Close();
+                return dataGridView;
+            }
+            catch (OracleException oe)
+            {
+                Console.WriteLine(oe);
+                connection.Close();
+                return new DataGridView();
+            }
+        }
+        public List<string> getStringListForColumnFromTable(string table, string column)
+        {
+            List<string> tempList = new List<string>();
+            try
+            {
+                select_distinct(column, table);
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        tempList.Add(reader[column].ToString());
+                    }
+                    connection.Close();
+                }
+            }
+            catch(OracleException oe)
+            {
+                Console.WriteLine(oe);
+            }
+            return tempList;
         }
     }
 }
