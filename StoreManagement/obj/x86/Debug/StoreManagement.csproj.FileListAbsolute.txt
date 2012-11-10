@@ -16,4 +16,4 @@ C:\StoreManagement\StoreManagement\obj\x86\Debug\StoreManagement.ProductCatagori
 C:\StoreManagement\StoreManagement\obj\x86\Debug\StoreManagement.Products.resources
 C:\StoreManagement\StoreManagement\obj\x86\Debug\StoreManagement.Suppliers.resources
 C:\StoreManagement\StoreManagement\obj\x86\Debug\StoreManagement.AddProductsToOrder.resources
-C:\StoreManagement\StoreManagement\obj\x86\Debug\StoreManagement.OracleDatabaseController.resources
+C:\StoreManagement\StoreManagement\obj\x86\Debug\StoreManagement.Bill.resources
