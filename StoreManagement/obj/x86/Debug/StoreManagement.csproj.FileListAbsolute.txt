@@ -17,3 +17,19 @@ C:\StoreManagement\StoreManagement\obj\x86\Debug\StoreManagement.Products.resour
 C:\StoreManagement\StoreManagement\obj\x86\Debug\StoreManagement.Suppliers.resources
 C:\StoreManagement\StoreManagement\obj\x86\Debug\StoreManagement.AddProductsToOrder.resources
 C:\StoreManagement\StoreManagement\obj\x86\Debug\StoreManagement.Bill.resources
+C:\Users\Tanay\Documents\Visual Studio 2012\Projects\StoreManagement\StoreManagement\bin\Debug\StoreManagement.exe.config
+C:\Users\Tanay\Documents\Visual Studio 2012\Projects\StoreManagement\StoreManagement\bin\Debug\StoreManagement.exe
+C:\Users\Tanay\Documents\Visual Studio 2012\Projects\StoreManagement\StoreManagement\bin\Debug\StoreManagement.pdb
+C:\Users\Tanay\Documents\Visual Studio 2012\Projects\StoreManagement\StoreManagement\obj\x86\Debug\StoreManagement.csprojResolveAssemblyReference.cache
+C:\Users\Tanay\Documents\Visual Studio 2012\Projects\StoreManagement\StoreManagement\obj\x86\Debug\StoreManagement.form_login.resources
+C:\Users\Tanay\Documents\Visual Studio 2012\Projects\StoreManagement\StoreManagement\obj\x86\Debug\StoreManagement.OneTimeLoginForm.resources
+C:\Users\Tanay\Documents\Visual Studio 2012\Projects\StoreManagement\StoreManagement\obj\x86\Debug\StoreManagement.AddProductsToOrder.resources
+C:\Users\Tanay\Documents\Visual Studio 2012\Projects\StoreManagement\StoreManagement\obj\x86\Debug\StoreManagement.Bill.resources
+C:\Users\Tanay\Documents\Visual Studio 2012\Projects\StoreManagement\StoreManagement\obj\x86\Debug\StoreManagement.Order.resources
+C:\Users\Tanay\Documents\Visual Studio 2012\Projects\StoreManagement\StoreManagement\obj\x86\Debug\StoreManagement.ProductCatagories.resources
+C:\Users\Tanay\Documents\Visual Studio 2012\Projects\StoreManagement\StoreManagement\obj\x86\Debug\StoreManagement.Products.resources
+C:\Users\Tanay\Documents\Visual Studio 2012\Projects\StoreManagement\StoreManagement\obj\x86\Debug\StoreManagement.Properties.Resources.resources
+C:\Users\Tanay\Documents\Visual Studio 2012\Projects\StoreManagement\StoreManagement\obj\x86\Debug\StoreManagement.Suppliers.resources
+C:\Users\Tanay\Documents\Visual Studio 2012\Projects\StoreManagement\StoreManagement\obj\x86\Debug\StoreManagement.csproj.GenerateResource.Cache
+C:\Users\Tanay\Documents\Visual Studio 2012\Projects\StoreManagement\StoreManagement\obj\x86\Debug\StoreManagement.exe
+C:\Users\Tanay\Documents\Visual Studio 2012\Projects\StoreManagement\StoreManagement\obj\x86\Debug\StoreManagement.pdb
